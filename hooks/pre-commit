@@ -1,0 +1,38 @@
+#!/bin/sh
+# Swarm pre-commit hook — runs `swarm check` on the staged spec/review/task files.
+#
+# This is a FAIL-OPEN convenience gate: if swarm-cli is not on PATH it skips with a hint and never
+# blocks a teammate who hasn't installed the tool. CI is the authoritative gate (see swarm-check.yml).
+# It is kept fast (only staged files, only when swarm is already installed) so it never gets
+# `--no-verify`'d into irrelevance.
+#
+# Install:
+#   cp hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+# (swarm-cli is not yet on npm — install it from source: https://github.com/jcosta33/swarm-cli)
+
+if ! command -v swarm >/dev/null 2>&1; then
+    echo "swarm: swarm-cli not on PATH — skipping the spec check (CI is the authoritative gate)."
+    echo "       install from source: https://github.com/jcosta33/swarm-cli"
+    exit 0
+fi
+
+# Only the staged spec/review/task markdown files (added/copied/modified).
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^(specs|reviews|tasks)/.+\.md$' || true)
+[ -z "$files" ] && exit 0
+
+status=0
+for f in $files; do
+    swarm check "$f"
+    rc=$?
+    [ "$rc" -gt "$status" ] && status="$rc"
+done
+
+# Exit codes (swarm-cli unixOutcome): 0 clean · 1 warnings · 2 blocking/error.
+if [ "$status" -ge 2 ]; then
+    echo "swarm: blocking check failure (above). Fix it, or 'git commit --no-verify' to override — CI still gates."
+    exit 1
+fi
+if [ "$status" -eq 1 ]; then
+    echo "swarm: non-blocking warnings (above)."
+fi
+exit 0

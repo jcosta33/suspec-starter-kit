@@ -31,6 +31,8 @@ status.md            the hand-edited workboard
 examples/            one worked chain (ticket → spec → task → review → finding) —
                      read it, then delete it
 advanced/            optional templates and reference cards — use in place when needed
+hooks/               gate templates — a fail-open pre-commit hook and an authoritative CI
+                     workflow that run `swarm check`; install them per hooks/README.md
 .gitignore.additions lines for your CODE repos (this workspace commits its artifacts)
 ```
 
@@ -41,6 +43,10 @@ After copying:
 2. If your agent is not Claude Code, point it at `.agents/skills/` — a symlink like the
    shipped `.claude/skills` one, or a copy into wherever your tool scans.
 3. Write one spec for your next non-trivial change: `specs/<feature>/spec.md`. Run the loop.
+4. Wire the gate (recommended): install the pre-commit hook and copy the CI workflow per
+   [`hooks/README.md`](hooks/README.md), so `swarm check` runs the [checks
+   contract](https://github.com/jcosta33/swarm/blob/main/docs/reference/checks.md) on every
+   commit and pull request. Needs [swarm-cli](https://github.com/jcosta33/swarm-cli).
 
 `advanced/` is optional — copy pieces when the work needs them. The audit template is the
 recommended first taste for brownfield codebases. Conditioning stances (the personas) and
