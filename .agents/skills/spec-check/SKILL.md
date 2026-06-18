@@ -14,7 +14,7 @@ description: >-
 
 A defect in a spec is cheapest to catch before any task is cut from it — after that, every
 agent run inherits it. This guide runs the check by hand and produces a short report. A future
-`swarm spec check` (swarm-cli) automates exactly this; until then, you are the checker, and the
+`swarm check` (swarm-cli) automates exactly this; until then, you are the checker, and the
 result is a review checklist, not a gate.
 
 ## The one rule: check, don't edit

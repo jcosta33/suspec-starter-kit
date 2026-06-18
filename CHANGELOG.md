@@ -12,7 +12,7 @@ not customized (see `docs/ADOPTING.md` → *Upgrading* in the Swarm repo).
 
 ## [Unreleased]
 
-## [1.2.0] - 2026-06-16
+## [1.2.0] - 2026-06-18
 
 ### Added
 - `templates/review.md` — the optional structured-evidence `verify` block convention beside the
