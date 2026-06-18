@@ -20,7 +20,7 @@ not customized (see `docs/ADOPTING.md` → *Upgrading* in the Swarm repo).
   the machine-checkable form [`swarm check` / `swarm review`](https://github.com/jcosta33/swarm-cli)
   reconciles against the spec's named command (core check **C013**, [Swarm ADR-0083](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0083-verify-evidence-reconcile.md)).
   Opt-in — a row may still use only the free-form Evidence cell; the check surfaces a consistency
-  fact (the recorded evidence names the requirement's own command and a pass), never a verdict.
+  fact (the recorded evidence names the requirement's own command and a pass), never a review result.
 
 ## [1.1.0] - 2026-06-15
 

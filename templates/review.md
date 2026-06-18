@@ -36,9 +36,9 @@ status: {{draft | pass | waived | blocked | needs-human}}
      `verify id=AC-NNN cmd="<the requirement's named Verify-with command>" result=pass|fail`.
      That info-string is the machine-checkable form `swarm check` / `swarm review` reconciles
      against the spec's named command; the block's body is the verbatim paste — for you and the
-     spot-check — and is never parsed for a verdict. Opt-in: a row may use only the free-form
+     spot-check — and is never parsed for a review result. Opt-in: a row may use only the free-form
      Evidence cell and stays a human-attention warning. The check surfaces a consistency fact
-     (the recorded evidence names the requirement's own command and a pass), never a verdict. -->
+     (the recorded evidence names the requirement's own command and a pass), never a review result. -->
 
 Spot-checked: {{which green row's evidence you re-ran yourself}}
 
