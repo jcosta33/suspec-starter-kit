@@ -10,7 +10,7 @@
 | # | Check | Severity | Level |
 |---|---|---|---|
 | C001 | `unique-ids` — every requirement ID appears exactly once in the file | hard error | toolable |
-| C002 | `duplicate-id` — no other file claims the same `id:`; no requirement ID reused across specs | hard error | toolable |
+| C002 | `duplicate-id` — no other file claims the same frontmatter `id:` (requirement IDs are spec-scoped — a bare `AC-NNN` may recur across specs) | hard error | toolable |
 | C003 | `verify-with` — every requirement carries a `Verify with:` (SOL: `VERIFY BY`) line | hard error | toolable |
 | C004 | `one-strength-word` — exactly one of must / must not / should / should not / may per requirement | warning | toolable |
 | C005 | `non-goals-present` — a non-empty Non-goals section exists | warning | toolable |
@@ -27,6 +27,13 @@ Watchlist (advisory): robust, fast, graceful, handle, support, improve, optimize
 seamless, appropriate, significant, as needed, where possible — a vague word is fine
 *if the same line* gives a number, an actor+action, or a named test.
 
+## Change-plan checks
+
+| # | Check | Severity | Level |
+|---|---|---|---|
+| C010 | `preserves-refs-resolve` — every `preserves:` frontmatter entry and Behavioral-preservation-guarantees table id resolves to a real requirement ID (or is an explicit `PG-NNN` plan-local guarantee) | hard error | toolable |
+| C011 | `waves-present` — a change plan whose `kind` is `migration`, `rewrite`, or `schema-change` carries a non-empty Transformation waves section, each wave naming its verify step | warning | toolable |
+
 ## Task checks
 
 - Scope ids all exist in the named spec/change plan (hard error, checklist).
@@ -35,7 +42,14 @@ seamless, appropriate, significant, as needed, where possible — a vague word i
 
 ## Review-packet checks
 
-- Every scoped requirement has a coverage row (hard error, checklist).
+| # | Check | Severity | Level |
+|---|---|---|---|
+| C012 | `coverage` — every in-scope requirement id (keyed on the task's declared `scope`) has exactly one coverage row, and no row names an id absent from the source spec; non-draft source specs only | warning | toolable |
+| C013 | `verify-evidence-binding` — where a coverage row carries a structured `verify` block (`id=AC-NNN cmd="…" result=pass\|fail`), the recorded `cmd` matches the requirement's named `Verify with:` / `VERIFY BY` command and a Pass row reads `result=pass`; a Pass row with only a free-form Evidence cell stays a warning; non-draft source specs only | warning | toolable |
+| C014 | `do-not-change-touched` — a changed file matching a task's `## Do not change` entry is surfaced as a protected-path fact routed to Human attention (same matcher as Affected areas; distinct from out-of-scope drift) | warning | toolable |
+
+Beyond the numbered checks, review also inspects:
+
 - **A Pass row has pasted output, a CI link, or, for a manual Verify method,
   a named human's recorded observation; an empty Evidence cell reads
   Unverified, never Pass** (hard error, checklist).
