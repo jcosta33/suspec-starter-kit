@@ -18,6 +18,7 @@
 | C007 | `no-tbd-at-ready` — no `TBD`/`TODO`/unresolved question at `status: ready` | hard error | toolable |
 | C008 | `sources-named` — frontmatter `sources:` names at least one origin | warning | toolable |
 | C009 | `broken-source-link` — every named source or cross-reference resolves | hard error | toolable |
+| C015 | `citation-resolves` — an inline `[[KEY]]` citation resolves to a matching `<a id="KEY">` anchor in the `sources.md` the frontmatter names (skips when no `sources.md` is resolvable; v0 = dangling-anchor only) | warning | toolable |
 
 Beyond the numbered checks, review also inspects (checklist level): an `owner:` is named;
 no two requirements contradict each other on the same trigger; watchlist words carry a
