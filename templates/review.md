@@ -65,6 +65,23 @@ Spot-checked: {{which green row's evidence you re-ran yourself}}
 
 1. {{exception — why it matters — suggested action}}
 
+## Open decisions
+
+<!-- Optional (ADR-0089) — include ONLY when this work closes with a decision the
+     human must make. Delete the section entirely when nothing is open; it is not
+     boilerplate. Frame the fork, don't bury it in bullets: the developer is
+     orchestrating several agents and is context-poor right now, while you still
+     hold this work's context. For each open decision:
+       - the decision (one line)
+       - 2–4 comparable options, each with its tradeoff — the case FOR and AGAINST
+       - a recommendation + a brief why (skippable — you present, the human decides)
+       - the context / impact the human may not be holding
+       - what it blocks (what is gated on this decision)
+     Keep the "why" short and verification-oriented (how sure · what would change it ·
+     what it blocks), not a persuasion essay. Route the decision; don't rule on it. -->
+
+1. {{the decision — options (for/against) — recommendation + why — context/impact — what it blocks}}
+
 ## Task status
 
 <!-- At closeout, confirm the task's board row AND the task packet's own
