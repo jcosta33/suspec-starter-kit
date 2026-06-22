@@ -8,6 +8,10 @@ tmp/
 # Local state of the future Swarm CLI (machine state, never committed)
 .swarm/
 
+# Backups `swarm update --write` leaves when it replaces a customized kit file (reconcile, then delete).
+*.swarm-bak
+*.swarm-bak.*
+
 # Isolated task worktrees (`swarm worktree create` puts them here, inside the repo) — committing one
 # stages an embedded gitlink, never what you want.
 .worktrees/

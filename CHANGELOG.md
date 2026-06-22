@@ -12,6 +12,10 @@ not customized (see `docs/ADOPTING.md` → *Upgrading* in the Swarm repo).
 
 ## [Unreleased]
 
+### Added
+- `.gitignore.additions` — ignore `*.swarm-bak` backups left by `swarm update --write` (swarm-cli),
+  so they are not committed or flagged as out-of-scope changes by `swarm review`.
+
 ## [1.3.0] - 2026-06-22
 
 ### Added
