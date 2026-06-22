@@ -10,6 +10,8 @@ description: Review another agent's work hostile-to-plausible-explanations. ALWA
 
 Reviews fail when the reviewer accepts the worker's framing. The discipline of *adversarial review* is to set the worker's claims aside, read the code with fresh eyes, and run the validators yourself. Apply this discipline whenever you are reviewing a branch, deepening an audit, or hunting a bug — the same hostility-to-plausible-explanations applies in all three.
 
+**Before you start, open [`references/task-template.md`](./references/task-template.md)** and copy it into your task file — it is the session frame for this review; fill it in as you go (don't reconstruct the structure from memory).
+
 ## Project context (the AGENTS.md contract)
 
 Resolves project commands via the consuming repo's `AGENTS.md > Commands` table — the `cmdTest` / `cmdLint` / `cmdBuild` / `cmdTypecheck` slots, plus any project-specific validation row; ask the user if the project keeps an architectural-rules check outside the table. If `AGENTS.md` is missing or a slot is undefined, ask the user which command to run before pasting any verification output — do not guess.
