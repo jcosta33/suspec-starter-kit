@@ -12,6 +12,9 @@ tmp/
 *.swarm-bak
 *.swarm-bak.*
 
+# Generated agent definitions (`swarm agents emit --codex`) — regenerate from the source defs, never commit.
+.codex/
+
 # Isolated task worktrees (`swarm worktree create` puts them here, inside the repo) — committing one
 # stages an embedded gitlink, never what you want.
 .worktrees/
