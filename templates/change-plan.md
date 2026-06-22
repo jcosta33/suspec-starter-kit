@@ -50,6 +50,10 @@ created: {{YYYY-MM-DD}}
 |---|---|
 | `{{path}}` | {{one line}} |
 
+<!-- When the surface is a shared signature or interface, the surfaces that change include its
+     CALLERS, not just the edit site. Enumerate them (the inventory's Current interfaces → Callers
+     column is the source) — fan-out is what makes the estimate true. -->
+
 ## Risk areas
 
 - {{where a reviewer should concentrate}}
