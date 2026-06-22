@@ -54,6 +54,13 @@ based on. Survey at least three independent sources — a floor, not a target; t
 coverage of the option space, and a recommendation grounded in one source is a single point of
 failure.
 
+**When the question turns on empirical or scientific evidence** — study results, effect sizes,
+benchmark numbers, or "X is faster/safer/better" claims — open
+[`references/research-methodology.md`](./references/research-methodology.md) and grade each source
+by it before you cite: the source-tier ladder, the downgrade checks (small N, indirect setting,
+vendor-funded, single unreplicated result), and the predatory-/untrustworthy-venue screen. Carry
+the result into the finding's confidence (rule 4) with the reason it was downgraded.
+
 ### 4. Record each finding as R-NNN with its confidence
 
 Give every finding a stable id (`R-001`, `R-002`, …) and four fields: the one durable **claim**,
@@ -113,3 +120,13 @@ the reader back the question they came with.
 - [ ] Product-behavior claims were exercised, with output recorded.
 - [ ] Open questions are listed, not silently settled.
 - [ ] The recommendation names the findings it rests on — or names the open question blocking one.
+- [ ] For empirical/scientific claims, each source was graded against the methodology reference and the rejected ones are recorded.
+
+## Bundled resources
+
+- [`references/research-methodology.md`](./references/research-methodology.md) — how to grade
+  evidence when a question turns on empirical or scientific claims: the source-tier ladder
+  (OCEBM-adapted), the downgrade/upgrade checks (GRADE-adapted), the predatory-/untrustworthy-venue
+  screen (Grudniewicz 2019 + Think.Check.Submit), keeping observation distinct from claim, and the
+  auditable Rejected trail. Load it at rule 3 when the evidence is empirical — not needed for a
+  plain API/feature comparison.
