@@ -56,3 +56,8 @@ per-change-shape implementation guides install from the
 
 Full instructions: [`docs/ADOPTING.md`](https://github.com/jcosta33/swarm/blob/main/docs/ADOPTING.md)
 in the Swarm repo. Worked examples: [`docs/examples/`](https://github.com/jcosta33/swarm/tree/main/docs/examples).
+
+The kit is [semver](https://semver.org)-versioned ([`VERSION`](./VERSION), [`CHANGELOG.md`](./CHANGELOG.md)) —
+watch the [releases](https://github.com/jcosta33/swarm-starter-kit/releases) and re-copy the parts
+you have not customized. If you use the optional CLI, `swarm update --check` tells you when your
+copy is behind.
