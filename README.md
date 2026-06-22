@@ -62,4 +62,5 @@ in the Swarm repo. Worked examples: [`docs/examples/`](https://github.com/jcosta
 The kit is [semver](https://semver.org)-versioned ([`VERSION`](./VERSION), [`CHANGELOG.md`](./CHANGELOG.md)) —
 watch the [releases](https://github.com/jcosta33/swarm-starter-kit/releases) and re-copy the parts
 you have not customized. If you use the optional CLI, `swarm update --check` tells you when your
-copy is behind.
+copy is behind, and `swarm update --write` refreshes the kit-owned guidance for you (conflict-safe;
+your specs, board, and `AGENTS.md` are never touched).
