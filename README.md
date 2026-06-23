@@ -5,8 +5,8 @@ as a new repo, or as a folder inside an existing project — fill in `AGENTS.md`
 
 ```sh
 # a dedicated workspace repo — for one project, or governing several code repos
-gh repo create my-workspace --private --template jcosta33/corpus-starter-kit --clone   # or clone and re-init:
-git clone https://github.com/jcosta33/corpus-starter-kit my-workspace && rm -rf my-workspace/.git && git -C my-workspace init
+gh repo create my-project-works --private --template jcosta33/corpus-starter-kit --clone   # or clone and re-init:
+git clone https://github.com/jcosta33/corpus-starter-kit my-project-works && rm -rf my-project-works/.git && git -C my-project-works init
 
 # or co-located inside your project
 git clone https://github.com/jcosta33/corpus-starter-kit /tmp/kit && cp -R /tmp/kit/. your-repo/workspace/ && rm -rf your-repo/workspace/.git

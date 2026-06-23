@@ -27,7 +27,7 @@
 - Templates for the core artifacts: `templates/` (ADR shape: `advanced/adr.md`)
 - Agent guides: `.agents/skills/` — Claude Code reads them via the `.claude/skills`
   symlink; point other tools at the same folder
-- {{For code repos: "Corpus workspace: <path-or-url>"}}
+- {{For code repos: "Corpus workspace: ../<project>-works"}}
 
 ## Project facts
 
