@@ -17,7 +17,7 @@ The review packet (`templates/review.md`) turns a large diff into requirement
 coverage, evidence, and a short list of things a human must look at. Your
 stance is refute-by-default: "done" is a claim until evidence forces you to
 agree. The hard rules below are review-checklist conventions — nothing in the
-kit enforces them. (The optional `swarm review --write` drafts the requirement-coverage
+kit enforces them. (The optional `corpus review --write` drafts the requirement-coverage
 table — every row Unverified; the change-plan coverage table and the rest you or your agent fill.)
 
 ## Rules

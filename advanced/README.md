@@ -30,24 +30,24 @@ The guides for the work these templates support — `write-audit`, `write-resear
 `write-rfc`, `write-prd`, `write-bug-report`, `write-change-plan`, `write-inventory`,
 `spec-check`, `split-work`, `save-findings`, `adversarial-review` — ship installed in the
 kit's `.agents/skills/`, beside the core loop guides. They are the **workspace authoring
-guides** (the name the kit README and the swarm-skills catalog both use). Nothing to install.
+guides** (the name the kit README and the corpus-skills catalog both use). Nothing to install.
 
-## More guides (the swarm-skills catalog)
+## More guides (the corpus-skills catalog)
 
 Conditioning stances (the personas) and long-form implementation guides per change
 shape (feature, fix, refactor, rewrite, migration, performance, testing,
 documentation, flaky tests) live in the
-[swarm-skills catalog](https://github.com/jcosta33/swarm-skills). Install into
-`.agents/skills/` with `npx skills add jcosta33/swarm-skills` (add `--list` to preview
+[corpus-skills catalog](https://github.com/jcosta33/corpus-skills). Install into
+`.agents/skills/` with `npx skills add jcosta33/corpus-skills` (add `--list` to preview
 without installing), or copy the folders.
 
-## Claude Code agents (the swarm-agents catalog)
+## Claude Code agents (the corpus-agents catalog)
 
 Runner-specific **Claude Code worker definitions** for the Corpus roles — an independent
-`swarm-reviewer`, read-only `swarm-explorer` / `swarm-evidence-checker` / `swarm-challenger`, and
-bounded-authoring `swarm-spec-author` / `swarm-researcher` / `swarm-auditor` / `swarm-documentarian`
+`corpus-reviewer`, read-only `corpus-explorer` / `corpus-evidence-checker` / `corpus-challenger`, and
+bounded-authoring `corpus-spec-author` / `corpus-researcher` / `corpus-auditor` / `corpus-documentarian`
 — plus the delegation-provenance hook (ADR-0088 producer 2) and a read-only guard, live in the
-[swarm-agents catalog](https://github.com/jcosta33/swarm-agents). Copy an agent into your repo's
+[corpus-agents catalog](https://github.com/jcosta33/corpus-agents). Copy an agent into your repo's
 `.claude/agents/` and the hooks into `.claude/hooks/`. (They were founded out of this kit's
 `advanced/.claude/` probe — ADR-0092; honest scope: read-only scoping is toolable/partial, not a
 sandbox.)

@@ -36,7 +36,7 @@ it commits a guess.
 
 ## Keep each task small, single-concern, and untangled
 
-Coverage decides *what* goes in a task; size and tangle decide whether it can be reviewed. Small,
+Coverage decides _what_ goes in a task; size and tangle decide whether it can be reviewed. Small,
 single-concern changes are the best-replicated result in code review — review effectiveness is best
 on a small change and the proportion of useful review comments drops as a change spreads across more
 files. So when you cut:
@@ -45,15 +45,15 @@ files. So when you cut:
 - **Refactor in its own task, ahead of the behavior change.** A rename, a move, or a signature
   change that other work builds on is its own task and commit — separate from the feature or fix it
   enables. Mixing a refactor with a behavior change is the most common way a diff becomes
-  unreviewable; the interface-defining task already goes first (see *Run order* below), so this falls
+  unreviewable; the interface-defining task already goes first (see _Run order_ below), so this falls
   out naturally. A trivial cleanup (a local rename) may ride along.
 - **Split out the connective tissue.** When new code wires into existing code, make the high-diffusion
   wiring — the edits touching many existing files — its own task, so the reviewer judges the new logic
   and its integration separately rather than as one tangled blob.
 
-This buys *cleaner* reviews — fewer false positives at the same defect yield — not more bugs caught;
+This buys _cleaner_ reviews — fewer false positives at the same defect yield — not more bugs caught;
 that is reason enough. It is a convention; nothing sizes a task for you. (Grounding + the optional
-oversized-packet heuristic: [Corpus ADR-0094](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0094-decomposition-and-risk-weighted-review.md).)
+oversized-packet heuristic: [Corpus ADR-0094](https://github.com/jcosta33/corpus/blob/main/docs/adrs/0094-decomposition-and-risk-weighted-review.md).)
 
 ## Tasks that share files are not independent
 

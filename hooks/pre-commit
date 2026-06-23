@@ -1,42 +1,42 @@
 #!/bin/sh
-# Corpus pre-commit hook — runs `swarm check` on the staged spec/review files.
+# Corpus pre-commit hook — runs `corpus check` on the staged spec/review files.
 #
-# This is a FAIL-OPEN convenience gate: if swarm-cli is not on PATH it skips with a hint and never
-# blocks a teammate who hasn't installed the tool. CI is the authoritative gate (see swarm-check.yml).
-# It is kept fast (only staged files, only when swarm is already installed) so it never gets
+# This is a FAIL-OPEN convenience gate: if corpus-cli is not on PATH it skips with a hint and never
+# blocks a teammate who hasn't installed the tool. CI is the authoritative gate (see corpus-check.yml).
+# It is kept fast (only staged files, only when corpus is already installed) so it never gets
 # `--no-verify`'d into irrelevance.
 #
 # Install:
 #   cp hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
-# (swarm-cli is not yet on npm — install it from source: https://github.com/jcosta33/swarm-cli)
+# (corpus-cli is not yet on npm — install it from source: https://github.com/jcosta33/corpus-cli)
 
-if ! command -v swarm >/dev/null 2>&1; then
-    echo "swarm: swarm-cli not on PATH — skipping the spec check (CI is the authoritative gate)."
-    echo "       install from source: https://github.com/jcosta33/swarm-cli"
+if ! command -v corpus >/dev/null 2>&1; then
+    echo "corpus: corpus-cli not on PATH — skipping the spec check (CI is the authoritative gate)."
+    echo "       install from source: https://github.com/jcosta33/corpus-cli"
     exit 0
 fi
 
 # Only the staged spec/review markdown files (added/copied/modified). Task files are not gated here:
-# `swarm check` has no task-checks yet, so a staged task would draw misleading spec diagnostics —
+# `corpus check` has no task-checks yet, so a staged task would draw misleading spec diagnostics —
 # add `tasks` back once task checks ship. The per-directory index READMEs (specs/README.md,
 # reviews/README.md) are excluded: they are not artifacts, carry no frontmatter, and would otherwise
-# make `swarm check` error and block the FIRST commit of a freshly-scaffolded workspace.
+# make `corpus check` error and block the FIRST commit of a freshly-scaffolded workspace.
 files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^(specs|reviews)/.+\.md$' | grep -vE '(^|/)README\.md$' || true)
 [ -z "$files" ] && exit 0
 
 status=0
 for f in $files; do
-    swarm check "$f"
+    corpus check "$f"
     rc=$?
     [ "$rc" -gt "$status" ] && status="$rc"
 done
 
-# Exit codes (swarm-cli unixOutcome): 0 clean · 1 warnings · 2 blocking/error.
+# Exit codes (corpus-cli unixOutcome): 0 clean · 1 warnings · 2 blocking/error.
 if [ "$status" -ge 2 ]; then
-    echo "swarm: blocking check failure (above). Fix it, or 'git commit --no-verify' to override — CI still gates."
+    echo "corpus: blocking check failure (above). Fix it, or 'git commit --no-verify' to override — CI still gates."
     exit 1
 fi
 if [ "$status" -eq 1 ]; then
-    echo "swarm: non-blocking warnings (above)."
+    echo "corpus: non-blocking warnings (above)."
 fi
 exit 0
