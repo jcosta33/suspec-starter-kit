@@ -2,7 +2,7 @@
 
 Where **transitory** workspace output goes to age out, so the live tree stays navigable.
 
-Swarm splits artifacts into two classes (Swarm ADR-0096):
+Corpus splits artifacts into two classes (Corpus ADR-0096):
 
 - **Durable records** — specs of record, decisions (ADRs in `decisions/`), and saved `findings/` —
   persist for the repo's life. They are **superseded, never deleted**: mark a reversed one

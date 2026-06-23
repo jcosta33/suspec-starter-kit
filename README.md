@@ -1,6 +1,6 @@
-# Swarm starter kit — a complete workspace
+# Corpus starter kit — a complete workspace
 
-This repository **is** a [Swarm](https://github.com/jcosta33/swarm) workspace. Copy it whole —
+This repository **is** a [Corpus](https://github.com/jcosta33/swarm) workspace. Copy it whole —
 as a new repo, or as a folder inside an existing project — fill in `AGENTS.md`, and run the loop.
 
 ```sh
@@ -57,7 +57,7 @@ per-change-shape implementation guides install from the
 `npx skills add jcosta33/swarm-skills` (add `--list` to preview the catalog without installing).
 
 Full instructions: [`docs/ADOPTING.md`](https://github.com/jcosta33/swarm/blob/main/docs/ADOPTING.md)
-in the Swarm repo. Worked examples: [`docs/examples/`](https://github.com/jcosta33/swarm/tree/main/docs/examples).
+in the Corpus repo. Worked examples: [`docs/examples/`](https://github.com/jcosta33/swarm/tree/main/docs/examples).
 
 The kit is [semver](https://semver.org)-versioned ([`VERSION`](./VERSION), [`CHANGELOG.md`](./CHANGELOG.md)) —
 watch the [releases](https://github.com/jcosta33/swarm-starter-kit/releases) and re-copy the parts

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Swarm starter kit are recorded here. The format follows
+All notable changes to the Corpus starter kit are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the kit is versioned with
 [semantic versioning](https://semver.org/spec/v2.0.0.html): a **major** bump means a copy-whole
 adopter would have to reconcile a breaking layout or format change, **minor** adds files or
@@ -8,7 +8,7 @@ guidance you can re-copy safely, **patch** is a fix or wording change.
 
 You adopted this kit by copying it whole, so there is no automatic upgrade — watch the
 [releases](https://github.com/jcosta33/swarm-starter-kit/releases) and re-copy the parts you have
-not customized (see `docs/ADOPTING.md` → *Upgrading* in the Swarm repo).
+not customized (see `docs/ADOPTING.md` → *Upgrading* in the Corpus repo).
 
 ## [Unreleased]
 
@@ -21,10 +21,10 @@ not customized (see `docs/ADOPTING.md` → *Upgrading* in the Swarm repo).
 ### Added
 - `LICENSE` — MIT, matching the rest of the family.
 - `templates/review.md` — an optional `## Open decisions` section for routing a decision to the
-  reviewer ([Swarm ADR-0089](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0089-decision-handoff-open-decisions.md)).
+  reviewer ([Corpus ADR-0089](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0089-decision-handoff-open-decisions.md)).
 - `templates/change-plan.md` — a prompt under **Affected surfaces** to enumerate *callers* (the
   inventory's `Current interfaces → Callers` column), not only edit sites, when the surface is a
-  shared signature or interface (single-sourced from the Swarm change-plan docs).
+  shared signature or interface (single-sourced from the Corpus change-plan docs).
 - `.gitignore.additions` — ignore `.worktrees/` and reinforce the co-located-workspace ignores.
 
 ### Changed
@@ -45,7 +45,7 @@ not customized (see `docs/ADOPTING.md` → *Upgrading* in the Swarm repo).
 - `templates/review.md` — the optional structured-evidence `verify` block convention beside the
   coverage table: a fenced block whose info-string (`verify id=AC-NNN cmd="…" result=pass|fail`) is
   the machine-checkable form [`swarm check` / `swarm review`](https://github.com/jcosta33/swarm-cli)
-  reconciles against the spec's named command (core check **C013**, [Swarm ADR-0083](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0083-verify-evidence-reconcile.md)).
+  reconciles against the spec's named command (core check **C013**, [Corpus ADR-0083](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0083-verify-evidence-reconcile.md)).
   Opt-in — a row may still use only the free-form Evidence cell; the check surfaces a consistency
   fact (the recorded evidence names the requirement's own command and a pass), never a review result.
 
@@ -62,7 +62,7 @@ not customized (see `docs/ADOPTING.md` → *Upgrading* in the Swarm repo).
 ## [1.0.0] - 2026-06-13
 
 ### Added
-- The copy-whole workspace baseline ([Swarm ADR-0075](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0075-starter-kit-template-repo.md)):
+- The copy-whole workspace baseline ([Corpus ADR-0075](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0075-starter-kit-template-repo.md)):
   `AGENTS.md` bootloader (with `CLAUDE.md` / `GEMINI.md` symlinks); the core loop guides and the
   workspace authoring guides under `.agents/skills/`; the eight core artifact templates under
   `templates/`; the flow folders (`specs/ intake/ tasks/ reviews/ findings/ inventory/

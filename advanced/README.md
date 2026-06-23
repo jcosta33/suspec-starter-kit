@@ -43,7 +43,7 @@ without installing), or copy the folders.
 
 ## Claude Code agents (the swarm-agents catalog)
 
-Runner-specific **Claude Code worker definitions** for the Swarm roles — an independent
+Runner-specific **Claude Code worker definitions** for the Corpus roles — an independent
 `swarm-reviewer`, read-only `swarm-explorer` / `swarm-evidence-checker` / `swarm-challenger`, and
 bounded-authoring `swarm-spec-author` / `swarm-researcher` / `swarm-auditor` / `swarm-documentarian`
 — plus the delegation-provenance hook (ADR-0088 producer 2) and a read-only guard, live in the
@@ -52,4 +52,4 @@ bounded-authoring `swarm-spec-author` / `swarm-researcher` / `swarm-auditor` / `
 `advanced/.claude/` probe — ADR-0092; honest scope: read-only scoping is toolable/partial, not a
 sandbox.)
 
-Copy what you need; ignore the rest. Full instructions: `docs/ADOPTING.md` in the Swarm repo.
+Copy what you need; ignore the rest. Full instructions: `docs/ADOPTING.md` in the Corpus repo.

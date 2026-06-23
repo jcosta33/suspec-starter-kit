@@ -53,7 +53,7 @@ files. So when you cut:
 
 This buys *cleaner* reviews — fewer false positives at the same defect yield — not more bugs caught;
 that is reason enough. It is a convention; nothing sizes a task for you. (Grounding + the optional
-oversized-packet heuristic: [Swarm ADR-0094](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0094-decomposition-and-risk-weighted-review.md).)
+oversized-packet heuristic: [Corpus ADR-0094](https://github.com/jcosta33/swarm/blob/main/docs/adrs/0094-decomposition-and-risk-weighted-review.md).)
 
 ## Tasks that share files are not independent
 
@@ -78,7 +78,7 @@ what it writes is assumed to collide with everything — sequence it. **Shared s
 schema migration or a public interface is a hidden meeting point even when the feature work
 looks disjoint. Parallelism is the opt-in, earned by demonstrated disjointness; sequencing is
 the default. All of this is a convention checked by hand against the listed paths — splitting
-work is judgment work, and no Swarm tooling does it for you.
+work is judgment work, and no Corpus tooling does it for you.
 
 ## Write the dependency order down
 

@@ -1,10 +1,10 @@
 # AGENTS.md
 
-<!-- Keep this file short — aim for ~100 lines (Swarm's own convention: agents read
+<!-- Keep this file short — aim for ~100 lines (Corpus's own convention: agents read
      it on every task, so every line spends always-loaded budget). Move procedures
      into the guides; keep only standing facts and commands here. -->
 
-## Swarm startup
+## Corpus startup
 
 1. Read the task packet you were given first. Follow its scope.
 2. Read the linked spec (and change plan, if any) before touching code.
@@ -27,7 +27,7 @@
 - Templates for the core artifacts: `templates/` (ADR shape: `advanced/adr.md`)
 - Agent guides: `.agents/skills/` — Claude Code reads them via the `.claude/skills`
   symlink; point other tools at the same folder
-- {{For code repos: "Swarm workspace: <path-or-url>"}}
+- {{For code repos: "Corpus workspace: <path-or-url>"}}
 
 ## Project facts
 
@@ -54,7 +54,7 @@ Monorepo with a root dispatcher (`turbo run test`, `make test`): keep single
 slots. Where contexts truly diverge (polyglot or multi-repo estates), repeat
 this table once per context under a sub-heading (`### Commands (web)`) — slot
 names stay the same; a task resolves against the sub-table its Affected areas
-name. More slots (registry: `checks/checks.yaml` in the Swarm repo):
+name. More slots (registry: `checks/checks.yaml` in the Corpus repo):
 cmdInstall, cmdFormat, cmdValidate, cmdBenchmark, cmdSecurity — add a row when
 your estate has one.
 
@@ -66,5 +66,5 @@ your estate has one.
 
 ## Agent role
 
-You are an implementation or review worker. Swarm organizes the work; you perform
+You are an implementation or review worker. Corpus organizes the work; you perform
 the assigned task — and you never review your own implementation.
