@@ -48,14 +48,18 @@ seamless, appropriate, significant, as needed, where possible — a vague word i
 | C012 | `coverage` — every in-scope requirement id (keyed on the task's declared `scope`) has exactly one coverage row, and no row names an id absent from the source spec; non-draft source specs only | warning | toolable |
 | C013 | `verify-evidence-binding` — where a coverage row carries a structured `verify` block (`id=AC-NNN cmd="…" result=pass\|fail`), the recorded `cmd` matches the requirement's named `Verify with:` / `VERIFY BY` command and a Pass row reads `result=pass`; a Pass row with only a free-form Evidence cell stays a warning; non-draft source specs only | warning | toolable |
 | C014 | `do-not-change-touched` — a changed file matching a task's `## Do not change` entry is surfaced as a protected-path fact routed to Human attention (same matcher as Affected areas; distinct from out-of-scope drift) | warning | toolable |
+| C016 | `pass-needs-evidence` — a Pass coverage row with an empty Evidence cell is a structural contradiction (a Pass needs pasted output, a CI link, or a named manual observation); the `swarm check <review>` gate **blocks** it, the `swarm review` reconcile surfaces it advisorily | hard error | toolable |
 
 Beyond the numbered checks, review also inspects:
 
-- **A Pass row has pasted output, a CI link, or, for a manual Verify method,
-  a named human's recorded observation; an empty Evidence cell reads
-  Unverified, never Pass** (hard error, checklist).
 - No merge recommendation with an open critical item (hard error, checklist).
 - At least one green row spot-checked by the reviewer (convention).
+
+## Workspace checks
+
+| # | Check | Severity | Level |
+|---|---|---|---|
+| C017 | `orphaned-reference` — a bundled `.agents/skills/<name>/references/<file>` named nowhere in its sibling `SKILL.md` (orphan direction only — a load-bearing reference the guide forgot to point at) | warning | toolable |
 
 ## Findings / board
 
