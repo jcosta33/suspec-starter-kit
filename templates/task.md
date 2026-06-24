@@ -53,8 +53,8 @@ Implement or preserve:
    stop and say why instead of improvising.
 3. Run every Verify item and paste the real output — a claim without output
    counts as unverified.
-4. Before finishing, re-read your own diff as a skeptic: what would a
-   reviewer flag?
+4. Before finishing, adversarially self-review your own diff as a skeptic
+   (ADR-0056) — try to make each claim fail — and record it in `## Self-review`.
 5. Fill `## Run summary` below — changed files, one line per Verify command
    citing its pasted output above, out-of-scope edits, blocked questions —
    and drop anything durable in `## Findings`.
@@ -77,3 +77,17 @@ Implement or preserve:
   task, spec, change plan), guide(s) loaded, worker identity, isolation mode
   (worktree / shared tree / patch-only); omit for a lead-run or trivial task.
   If the worker authored no task file, the lead fills this on merge-back. }}
+
+## Self-review
+
+<!-- Filled by the implementing agent before handoff — the adversarial self-review
+     ADR-0056 makes a mandatory completion discipline. Adopt the skeptic stance over
+     your OWN output: re-run the bound proofs from a clean state, hunt the unexercised
+     path (edge / error / concurrency), check for scope creep and silent semantic
+     drift, treat your own confident prose as a confession — then fix what it surfaces.
+     This yields fixes + a recorded critique, never a Pass/Fail verdict; the
+     independent review still renders the gate (implementer ≠ reviewer). -->
+
+- Attacked: {{which completion claims you tried to falsify, and how}}
+- Surfaced + fixed: {{none, or each issue found and its fix}}
+- Residual risk: {{none, or what an independent reviewer should scrutinize}}
