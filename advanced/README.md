@@ -21,8 +21,10 @@ the ADR, which lives in `decisions/`.
 
 ## Reference cards (this directory)
 
-`sol-reference.md` (structured requirements) and `checks-reference.md` (common
-mistakes to check for) — read in place; nothing to install.
+`sol-reference.md` (structured requirements) and `checks-reference.md` (the check
+catalogue) are **pointers** to the canonical reference in the Corpus repo
+(`docs/reference/structured-requirements.md`, `docs/reference/checks.md`) — single-sourced
+there so they cannot drift; the kit does not duplicate them (ADR-0102).
 
 ## The matching agent guides (ship in `.agents/skills/`)
 

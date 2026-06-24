@@ -27,8 +27,8 @@ the report to the author (or switch hats explicitly and edit _after_ the report 
 
 ## The core checks
 
-Run each against the spec (full catalogue with IDs and severities:
-`advanced/checks-reference.md`):
+Run each against the spec (full catalogue with IDs and severities: the Corpus repo's
+`docs/reference/checks.md`):
 
 | ID   | Check                                                                                           | Severity   |
 | ---- | ----------------------------------------------------------------------------------------------- | ---------- |
@@ -68,8 +68,8 @@ think") that belongs in Open questions.
 
 If the spec opts into structured requirements (`format: sol` in the frontmatter), also walk
 the SOL check catalogue — same discipline, finer grain. It lives in the Corpus repo at
-`docs/reference/checks.md`; the kit does not carry it. The notation itself is in
-`advanced/sol-reference.md`.
+`docs/reference/checks.md`; the kit does not carry it. The notation itself is in the Corpus repo at
+`docs/reference/structured-requirements.md`.
 
 ## The report
 
