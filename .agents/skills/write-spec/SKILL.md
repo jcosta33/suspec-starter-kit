@@ -49,11 +49,16 @@ enforces it.
    with reach beyond this spec, or under `## Dropped from sources` when it is a
    cut. _Why: a decision without alternatives is incomplete — the reader cannot
    tell whether the others were weighed or overlooked._
-7. **Halt on ambiguity — never guess.** Any unresolved behavioral decision goes
-   under `## Open questions`, not into an AC. A spec with open questions is not
-   `status: ready`. _Why: a guess written as a requirement commits a decision
-   nobody made._ Either get the answer, or make the call explicitly, record it
-   in the spec, and close the question.
+7. **Halt on ambiguity — frame a decision, never guess.** Any unresolved
+   behavioral decision goes under `## Open questions` as **options + a
+   recommendation** (the decision in one line; 2–4 options with the case
+   FOR/AGAINST; your recommended option + a brief why; what it blocks) — not into
+   an AC, and not as a bare question. Where your runner supports it, ask the owner
+   and proceed on the answer; otherwise leave the decision for them. A spec with a
+   blocking open question is not `status: ready`. _Why: a guess written as a
+   requirement commits a decision nobody made; a bare question makes the owner do
+   the framing — options + a lean lets them just choose._ Either get the answer, or
+   make the call explicitly, record it, and resolve it.
 8. **Fill `## Dropped from sources`.** What the ticket or PRD asked for that
    this spec deliberately leaves out, and why. Be specific enough to challenge:
    "dropped: implementation details" is a category, not a record — "dropped:

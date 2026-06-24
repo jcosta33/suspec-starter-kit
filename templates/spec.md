@@ -36,7 +36,15 @@ Verify with: `{{test-name-or-command}}`
 
 ## Open questions
 
-- {{anything unresolved — an open question keeps the spec out of `status: ready` unless you mark it "(non-blocking)"}}
+<!-- Frame each unresolved item as a DECISION, not a bare question — a genuine fork the spec
+     can't settle on its own, not every micro-choice. For each:
+     the decision in one line · 2–4 options with the case FOR/AGAINST · a recommendation +
+     a brief why · what it blocks. A real "don't know yet" is a one-option decision whose
+     recommendation is "find out how". An unresolved BLOCKING decision keeps the spec out of
+     `status: ready`; mark "(non-blocking)" otherwise. Empty is correct when there is no fork —
+     do not pad it. (ADR-0101) -->
+
+- {{the decision — options (for/against) — recommendation + why — what it blocks}}
 
 ## Affected areas
 
