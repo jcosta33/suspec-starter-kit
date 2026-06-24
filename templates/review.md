@@ -3,7 +3,7 @@ type: review
 id: REVIEW-{{slug}}
 task: TASK-{{slug}}
 pr: { { pr-url — or "none yet" for a pre-PR or trunk-based review } }
-reviewer: { { who reviews — never the implementing session } }
+reviewer: { { the review lead — never the implementer (the spec/task author may, if they didn't implement) } }
 status: { { draft | pass | waived | blocked | needs-human } }
 ---
 
@@ -12,6 +12,19 @@ status: { { draft | pass | waived | blocked | needs-human } }
 ## Summary
 
 {{2–3 sentences: what changed, what is verified, what is not.}}
+
+## Review plan
+
+<!-- ADR-0099 — for an orchestrated (lead) review. The lead reads the task, cited
+     spec, run summary, and diff, then runs at least three independent lens
+     reviewers (default: requirement correctness · verification/evidence/repro ·
+     maintainability/design risk; add security, migration, performance, a11y, etc.
+     as the change warrants). Each lens returns findings + evidence only; the lead
+     reconciles and writes this packet. A lens reviewer never sets the status or the
+     suggested decision. Omit this section for a single-reviewer review. -->
+
+- Lenses: {{e.g. correctness · evidence/repro · maintainability — who ran each}}
+- Reconciliation: {{how the lead resolved conflicts/duplicates across lenses}}
 
 ## Changed files
 
