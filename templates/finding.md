@@ -2,8 +2,10 @@
 type: finding
 id: FINDING-{{slug}}
 status: candidate
+owner: {{team-or-person}}
 from: {{TASK- / REVIEW- / AUDIT- / INV- id}}
 date: {{YYYY-MM-DD}}
+reviewed: {{YYYY-MM-DD — refresh date for this durable record}}
 related: [{{SPEC-x#AC-NNN}}]
 ---
 

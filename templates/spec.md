@@ -4,6 +4,7 @@ id: SPEC-{{slug}}
 title: {{title}}
 status: draft
 owner: {{team-or-person}}
+reviewed: {{YYYY-MM-DD — refresh date for this durable record}}
 sources:
   - {{ticket-id-or-intake-file — or "self" when the work originates with you}}
 ---
