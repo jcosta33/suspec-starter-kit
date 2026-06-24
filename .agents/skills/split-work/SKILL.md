@@ -115,6 +115,16 @@ entry condition is strict: a behavior that only exists when both repos meet deco
 per-repo requirements instead — the carve-out never covers a requirement no single task
 verifies.
 
+## Spec-external mode: snapshot the slice
+
+When a dedicated workspace governs a separate code repo, keep the implementer single-root.
+Snapshot the requirement slice each task covers **into** the task packet — stamped with the
+spec id and the version/commit it was cut against — and place the task in the code repo's
+gitignored `.corpus/`. The implementer then reads the pinned snapshot, not a cross-repo path,
+and the spec cannot drift mid-task. Re-cut the task if the canonical spec changes materially.
+The external workspace stays canonical; the in-code copy is a marked execution snapshot, not
+authoritative. (Grounding: [Corpus ADR-0100](https://github.com/jcosta33/corpus/blob/main/docs/adrs/0100-spec-external-ops-local-mode.md).)
+
 ## Before you finish
 
 - [ ] Every requirement (or guarantee/wave item) is in exactly one task's Scope — none
@@ -126,3 +136,5 @@ verifies.
       comparison, done against listed paths, not from memory.
 - [ ] The run order is written down where the next person will look.
 - [ ] Each packet reads as self-contained: source, scope, do-not-change, verify.
+- [ ] Spec-external mode: each task carries a pinned spec-slice snapshot and lands in the code
+      repo's gitignored `.corpus/`.
