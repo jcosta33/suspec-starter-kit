@@ -1,1 +1,11 @@
 .DS_Store
+
+# Ephemeral working set (ADR-0104): gitignored — the durable record lives in the spec
+# (with its `## Execution`), findings/, decisions/, and status.md. Each dir keeps its README.
+# Audit-trail opt-in: comment out the three reviews/ lines to commit review packets instead.
+intake/*
+tasks/*
+reviews/*
+!intake/README.md
+!tasks/README.md
+!reviews/README.md
