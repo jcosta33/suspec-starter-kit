@@ -3,8 +3,10 @@ type: spec
 id: SPEC-{{slug}}
 title: {{title}}
 status: draft
+# lifecycle: draft → ready (contract freezes) → active (amended in place over years) → superseded
 owner: {{team-or-person}}
 reviewed: {{YYYY-MM-DD — refresh date for this durable record}}
+# superseded_by: SPEC-…   # set ONLY when a whole feature is replaced — otherwise amend in place (ADR-0108)
 sources:
   - {{ticket-id-or-intake-file — or "self" when the work originates with you}}
 ---
@@ -26,7 +28,10 @@ sources:
      it is the highest-value line in this file; prefer a runnable test or
      command. Prefer stricter notation? Any spec can use SOL blocks instead:
      add "format: sol" to the frontmatter. See `advanced/sol-reference.md` in your workspace
-     (full reference: the Corpus repo's docs/reference/structured-requirements.md). -->
+     (full reference: the Corpus repo's docs/reference/structured-requirements.md).
+     Living spec (ADR-0108): an AC keeps its id for life. Amend its text in place as the feature
+     evolves; to retire one, mark it superseded in place — `### AC-001 — name (superseded by AC-007,
+     YYYY-MM-DD)` — never delete it. Mint a new spec only when a whole feature is replaced. -->
 
 ### AC-001 — {{short name}}
 
