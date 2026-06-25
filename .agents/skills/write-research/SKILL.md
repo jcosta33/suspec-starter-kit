@@ -16,8 +16,8 @@ description: >-
 
 A research note answers one decision-informing question by mapping the options and the evidence,
 then stops. Its job is to leave the decision space well-mapped, not to close it: the decision is
-made later, when someone lifts the findings into a spec or an ADR. Use the template at
-`advanced/research.md`; do not reinvent its sections.
+made later, when someone lifts the findings into a spec or an ADR. A research note has these sections:
+**Question · Findings (R-NNN) · Open questions · Recommendation**; do not reinvent them.
 
 The discipline is evidentiary: cite or omit. A claim that cannot survive a citation falls out of
 the document. These rules are conventions backed by review — nothing in this repository enforces

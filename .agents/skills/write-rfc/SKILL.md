@@ -18,7 +18,7 @@ this approach won and the rejected options get re-litigated from scratch. An RFC
 version: one proposal, the problem forcing it, the alternatives weighed against it, and the
 exact decision requested — so _why this and not that_ outlives the change.
 
-Copy the template at `advanced/rfc.md` and fill it — this guide is how to fill it well.
+An RFC has these sections: **Problem · Proposal · Alternatives · Migration plan · Open questions · Decision requested** (walked below). Fill them — this guide is how to fill them well.
 
 ## The stance: advocate, commit to nothing
 

@@ -14,8 +14,8 @@ description: >-
 
 A bug report is a defect record, not a remedy: symptom, reproduction, root cause, and the
 requirement the defect violates. The fix is a separate, later task — and the fixer must be able
-to patch from the report alone, with zero re-investigation. Use the template at `advanced/bug.md`; do
-not reinvent its sections. These rules are conventions backed by review — nothing in this
+to patch from the report alone, with zero re-investigation. A bug report has these sections:
+**Symptom · Reproduction · Root cause · Affected requirements**; do not reinvent them. These rules are conventions backed by review — nothing in this
 repository enforces them automatically.
 
 ## The stance

@@ -15,7 +15,7 @@ description: >-
 
 An audit makes a code area legible so the work on it can be planned. It records what is true
 **today**, grounds each claim in evidence, names the risk that state carries — and stops there.
-Use the template at `advanced/audit.md`; do not reinvent its sections.
+An audit has these sections: **Scope · Observations · Risks · Open questions / unverified areas · Candidate requirements**. Do not reinvent them.
 
 Audits fail in two directions: they drift into prescription (telling the reader what to build —
 a spec's job), or they stay vague (impressions and TODO-scrapes nobody can act on). The rules

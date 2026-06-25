@@ -16,7 +16,7 @@ A PRD records **what outcome is wanted and why**. The spec written from it recor
 system must do. Keeping the two apart gives every future requirement a single, citable origin:
 six months on, "why does this requirement exist?" has a file to point at instead of a memory.
 
-Copy the template at `advanced/prd.md` and fill it — this guide is how to fill it well.
+A PRD has these sections: **Problem · Users · Goals · Non-goals · Success metrics · Release constraints · Linked evidence** (walked below). Fill them — this guide is how to fill them well.
 
 ## The one boundary
 
