@@ -27,8 +27,8 @@ sources:
      earlier instructions more). Each requirement gets a "Verify with:" line —
      it is the highest-value line in this file; prefer a runnable test or
      command. Prefer stricter notation? Any spec can use SOL blocks instead:
-     add "format: sol" to the frontmatter. See `advanced/sol-reference.md` in your workspace
-     (full reference: the Corpus repo's docs/reference/structured-requirements.md).
+     add "format: sol" to the frontmatter. Reference: the Corpus repo's
+     `docs/reference/structured-requirements.md`.
      Living spec (ADR-0108): an AC keeps its id for life. Amend its text in place as the feature
      evolves; to retire one, mark it superseded in place — `### AC-001 — name (superseded by AC-007,
      YYYY-MM-DD)` — never delete it. Mint a new spec only when a whole feature is replaced. -->

@@ -30,9 +30,6 @@ archive/             where transitory output (closed review/run artifacts) ages 
                      records (specs, decisions, findings) stay live; see archive/README.md
 decisions/           your ADR ledger, seeded with 0001-adopt-corpus
 status.md            the hand-edited workboard
-examples/            one worked chain (ticket → spec → task → review → finding) —
-                     read it, then delete it
-advanced/            optional templates and reference cards — use in place when needed
 hooks/               gate templates — a fail-open pre-commit hook and an authoritative CI
                      workflow that run `corpus check`; install them per hooks/README.md
 .gitignore.additions lines for your CODE repos (this workspace commits its artifacts)
@@ -50,9 +47,9 @@ After copying:
    contract](https://github.com/jcosta33/corpus/blob/main/docs/reference/checks.md) on every
    commit and pull request. Needs [corpus-cli](https://github.com/jcosta33/corpus-cli).
 
-`advanced/` is optional — copy pieces when the work needs them. The audit template is the
-recommended first taste for brownfield codebases. Conditioning stances (the personas) and
-per-change-shape implementation guides install from the
+The authoring guides at `.agents/skills/` carry the shape of every artifact — the audit guide
+(`write-audit`) is the recommended first taste for brownfield codebases. Conditioning stances
+(the personas) and per-change-shape implementation guides install from the
 [corpus-skills catalog](https://github.com/jcosta33/corpus-skills):
 `npx skills add jcosta33/corpus-skills` (add `--list` to preview the catalog without installing).
 

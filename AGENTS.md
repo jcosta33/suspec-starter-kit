@@ -24,7 +24,7 @@
 - Specs: `specs/<feature>/spec.md` · tasks: `tasks/` · reviews: `reviews/` ·
   findings: `findings/` · intake: `intake/` · inventories: `inventory/` ·
   change plans: `change-plans/` · decisions: `decisions/` · board: `status.md`
-- Templates for the core artifacts: `templates/` (ADR shape: `advanced/adr.md`)
+- Templates for the core artifacts: `templates/` (incl. the ADR shape, `adr.md`)
 - Agent guides: `.agents/skills/` — Claude Code reads them via the `.claude/skills`
   symlink; point other tools at the same folder
 - {{For code repos: "Corpus workspace: ../<project>-works"}}

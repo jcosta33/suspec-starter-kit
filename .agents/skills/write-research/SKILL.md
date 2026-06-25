@@ -104,7 +104,7 @@ the reader back the question they came with.
 
 ## What does not belong
 
-- Requirements in any form: no AC items, no SOL blocks (`advanced/sol-reference.md`) — those belong in
+- Requirements in any form: no AC items, no SOL blocks (the Corpus repo's `docs/reference/structured-requirements.md`) — those belong in
   the spec someone writes _from_ this note.
 - Opinion or "best practice" with no cited primary source.
 - A decision. Findings survey; they do not conclude.
