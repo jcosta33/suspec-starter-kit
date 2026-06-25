@@ -7,6 +7,9 @@ status: draft
 owner: {{team-or-person}}
 reviewed: {{YYYY-MM-DD — refresh date for this durable record}}
 # superseded_by: SPEC-…   # set ONLY when a whole feature is replaced — otherwise amend in place (ADR-0108)
+# snapshot: <commit-sha>  # OPTIONAL: the code state this text was last written against. Set/refresh it
+#                         # on each amendment to enable `corpus check --staleness` (diffs Affected
+#                         # areas since this SHA; advisory only, ADR-0108).
 sources:
   - {{ticket-id-or-intake-file — or "self" when the work originates with you}}
 ---
