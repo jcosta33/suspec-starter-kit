@@ -95,6 +95,21 @@ Before declaring the task done:
       are finding candidates.
 - [ ] You issued no review result on your own work.
 
+## Gotchas
+
+- **Bulk-codemodded instead of migrating per-wave.** A `sed`/codemod/shell loop swept hundreds of
+  files in one pass; the fixed substitution silently mangled the one callsite using the API in an
+  unusual way, and the green-looking global edit hid it. Migrate and check each file deliberately so
+  the outlier surfaces.
+- **Finished with old-API callsites surviving.** The diff looked done but old-API callsites lived on
+  in dynamic dispatch, string-based registry lookups, generated code, or fixtures the call-syntax
+  grep never reached — the phantom completion. Done means zero old-API callsites outside tracked
+  shims, proven by a pasted whole-codebase search plus the beyond-the-grep audit.
+- **Left a shim with no removal criterion.** A "temporary" compatibility shim shipped without a
+  path, forward target, and mechanically checkable removable-when condition — so "temporary" became
+  permanent and the half-migration ossified. Every shim gets its removal criterion before it is
+  introduced.
+
 ## Bundled resources
 
 - [`references/task-template.md`](./references/task-template.md) — a working-notes scaffold for the run (callsite tracker, shim

@@ -102,6 +102,21 @@ tried). A claim without pasted output counts as unverified.
   `[unable to reproduce]` with an explanation.
 - Source edits. A bug-report session changes no code; the working-tree status proves it.
 
+## Gotchas
+
+- **Wrote the fix instead of diagnosing.** The combined "diagnose-and-fix" instinct short-circuits
+  diagnosis at the first plausible cause and ships a patch nobody verified against a reproduction.
+  A bug report ends at the root cause and the named regression test; "the function should return X"
+  is the fix task's job, not yours.
+- **Conflated symptom with root cause.** "Returns null" is where the defect surfaced, not where it
+  lives. Stated as a symptom, the cause recurs through a different path the moment the same state is
+  hit again. The root cause is file:line + what state meets what input + which caller mishandles
+  the result — anything less hands the fixer a re-investigation, not a diagnosis.
+- **Finished without the verbatim failing reproduction.** "Should reproduce" or a paraphrased
+  output is an unverified claim — the fixer re-runs exactly what you paste, and if it isn't the
+  exact command and exact fenced output with a determinism note, they isolate the bug you already
+  isolated. No paste, not finished.
+
 ## Before you finish
 
 Close as the engineer about to hand this to a fixer — look for anything that could mislead them:

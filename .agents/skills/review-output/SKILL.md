@@ -88,6 +88,21 @@ table — every row Unverified; the change-plan coverage table and the rest you 
 | Fixing the code mid-review                               | Review judges; the fix is a new task                                 |
 | Reviewing a diff you authored                            | Hand it off; record that you did                                     |
 
+## Gotchas
+
+- **Marking a row Pass from the worker's paste without re-running it.** The worker's
+  output looks convincing and the command is slow, so you copy their result into Evidence.
+  A paste proves the command ran at some past moment on some past code, not that it passes
+  on the diff in front of you — that is the one thing the review exists to establish.
+- **Leaving a Pass row with an empty Evidence cell.** The AC plainly works, so you tick
+  Pass and move on. An empty cell is indistinguishable from "I never checked"; by the
+  table's own rule it is Unverified, and a green-looking table built on blanks is exactly
+  what invites the next reviewer to rubber-stamp it.
+- **Letting the summary's confidence set the decision instead of the rows.** The worker's
+  write-up is assured and tidy, so you suggest Merge while an Unverified or Failed row sits
+  in the table. The decision must follow the rows; confident prose is a claim to check, not
+  a result to inherit.
+
 ## Self-review gate
 
 Before setting the packet status:

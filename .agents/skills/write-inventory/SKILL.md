@@ -78,6 +78,25 @@ nobody fully remembers.
 This is a convention — nothing in this repository enforces it; the cost of skipping shows up
 as a change plan built on guesses.
 
+## Gotchas
+
+- **Judged or prescribed instead of mapping.** "This module is a mess" is an audit observation;
+  "we should split this" is a change-plan move. Either one in an inventory dilutes all three
+  documents and leaves the map carrying opinions the next reader can't act on safely. Every
+  sentence is "this exists, behaves like this, here's the evidence" — risks go to an audit,
+  fixes to the change plan.
+- **Claimed a behavior with no evidence.** A behavior row without a test name, `file:line`, or
+  pasted output is an opinion in a table — and the change plan turns these rows into preservation
+  guarantees, so an unbacked claim becomes a guarantee with no verify method. Ask of each row
+  "what would I paste to back this?" and paste it.
+- **Filled an interface row from memory.** Recalled callers inherit every drift between what
+  people believe and what's deployed — the exact gap the inventory exists to close. Grep for the
+  callers; an interface row with the caller column empty is a guess wearing a table.
+- **Left Unknowns empty.** An empty Unknowns section almost always means you didn't look, not
+  that nothing is unseen — external consumers, dynamic lookups, and generated code are precisely
+  where the coming change breaks someone invisibly. Naming the unknown now turns "we didn't know"
+  into "we knew and checked".
+
 ## Before you finish
 
 - [ ] Every sentence observes; nothing judges or prescribes.

@@ -71,6 +71,19 @@ names the PRD in its `sources:`.
 - Treating the PRD as the spec — agents don't build from PRDs. A PRD acquires force only when
   someone writes the spec from it.
 
+## Gotchas
+
+- **Wrote a requirement into the PRD.** A goal phrased "the system must validate the token" is
+  a requirement wearing a goal's clothes — it reads as an approved contract nobody approved, and
+  the spec author inherits a decision instead of making one. The PRD holds the outcome ("invalid
+  sessions never reach checkout"); the spec mints the requirement.
+- **Wrote a strength word.** A single must / should / may anywhere in Goals or Problem turns
+  intent into obligation. The frontmatter check exists because this slips in constantly —
+  re-read every goal as "is this a result or a rule?"
+- **Wrote the solution mechanism.** "Cache sessions in Redis" names a fix nobody weighed against
+  alternatives and pre-commits every reader to it. A PRD is the *why*, not the *what*: state the
+  outcome ("session lookups stay fast under load") and let the design choose the mechanism.
+
 ## Before you finish
 
 - [ ] No requirement language anywhere: search the file for "must", "must not", "should",

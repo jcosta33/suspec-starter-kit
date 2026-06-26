@@ -79,6 +79,20 @@ merges your evidence back. (Grounding: [Corpus ADR-0100](https://github.com/jcos
 | Reusing output from before your last edit    | Re-run; paste the fresh output                                                          |
 | A Verify command missing from `AGENTS.md`    | Ask which command to run — a guessed run is a false signal; unresolvable = Unverified   |
 
+## Gotchas
+
+- **Filling `## Run summary` from memory instead of the pasted Verify output.** You
+  recall the suite was green and write "tests pass" — but the reviewer cites that cell,
+  not your recollection. A summary line that does not point at real pasted output is
+  unverified the moment it is read.
+- **Editing a file outside the task's Affected areas because it was "right there."** A
+  neighbouring bug or ugly import is on your path and the fix is one line. That unlisted
+  change is an exception trigger at review and pollutes a diff that was meant to be
+  write-disjoint from parallel tasks.
+- **Pasting output captured before your last edit.** You ran Verify, then fixed one more
+  thing, then handed off — the pasted run no longer covers the code you shipped. Stale
+  evidence reads as fresh and hides the regression your final edit introduced.
+
 ## Self-review gate
 
 Before declaring the task done:

@@ -92,6 +92,19 @@ Before declaring the task done:
 - [ ] Nothing is left stubbed or half-rewritten; off-delta discoveries are finding candidates.
 - [ ] You issued no review result on your own work.
 
+## Gotchas
+
+- **Shipped an unrecorded behavior difference.** The diff carries a change — a tweaked default, a
+  reordered output, a swallowed error — that never appeared in the recorded delta. It passes review
+  by looking deliberate; it ships a behavior nobody decided to ship. Every behavior change in the
+  diff must trace back to a delta entry, or it halts for amendment.
+- **Treated "rewrite" as license to redesign.** The surrounding module got "cleaned up" along the
+  way, so the reviewer can no longer separate the intended change from the smuggled one and the
+  delta no longer bounds the scope. Off-delta improvements are finding candidates, not inline work.
+- **Started before recording the delta.** Coding first lets the implementation define the contract
+  in reverse — whatever you built becomes "the intended behavior," and the preserved surface is
+  never identified, so the equivalence check has nothing to protect.
+
 ## Bundled resources
 
 - [`references/task-template.md`](./references/task-template.md) — a working-notes scaffold for the run (the delta table as consumed

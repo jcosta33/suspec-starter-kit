@@ -72,6 +72,21 @@ RFC's status flips to `accepted`.
 - Writing an RFC for a decision already made — that's an ADR; an RFC pretending the choice is
   open wastes every reviewer's time.
 
+## Gotchas
+
+- **Leaving Alternatives empty.** The table reads "none considered," or holds one straw-man row
+  built to lose. The comparison is the single thing an RFC exists to preserve; without it a future
+  reader cannot tell whether the chosen approach beat real rivals or was simply the first one
+  written down, and the rejected options get re-litigated from scratch next year.
+- **Wording a sentence as a settled decision.** "We will adopt X" or "the migration happens in
+  Q3" slips into a document whose whole premise is that the choice is still open. A reviewer
+  skimming for the ask reads it as already decided, the deliberation the RFC was meant to invite
+  never happens, and a choice nobody ratified acquires the look of one that was.
+- **Writing requirements into the RFC.** The Proposal hardens into "the system must return 429 on
+  rate-limit" — a spec's contract smuggled into a pre-decision argument. The musts acquire force
+  before anyone accepts the approach, and the spec written on acceptance either duplicates them or
+  silently diverges, leaving two documents disagreeing about what is required.
+
 ## Before you finish
 
 - [ ] Every sentence is pre-decision — nothing worded as "we will" or "the system must".

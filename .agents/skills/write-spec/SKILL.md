@@ -95,6 +95,25 @@ when:
 | Editing code "to check the design works"             | The spec session changes the spec and nothing else                                                                                 |
 | Speccing a two-line cleanup                          | A task packet alone; say so                                                                                                        |
 
+## Gotchas
+
+- **Smuggled an implementation mechanism into a requirement.** An AC reads "must
+  cache results in Redis" — but Redis is a mechanism, not the requirement. The
+  real requirement (a latency bound, a persistence behavior) is now hidden, and
+  the implementer is over-constrained. State the observable behavior; if a
+  mechanism is genuinely load-bearing, make it its own requirement with the reason
+  attached.
+- **Left an AC with no `Verify with:` line.** It is the highest-value line in the
+  file — the review packet is built from these lines, so an AC without one reviews
+  as a wish nobody can check. If you can't say how to verify it, the AC is too
+  vague: reword it to the concrete observable, or cut it.
+- **Guessed past an ambiguity instead of recording an open question.** You hit an
+  undecided behavior and wrote in "the obvious default" to keep moving. That
+  commits a decision nobody made, buried in an AC where no reviewer will flag it
+  as unresolved. Put it under `## Open questions` as options + a recommendation,
+  or get the answer and record the call — and the spec is not `status: ready`
+  while a blocking question is open.
+
 ## Self-review gate
 
 Before handing the spec on, check each — fix, don't rationalize:

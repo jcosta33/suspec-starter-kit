@@ -96,6 +96,24 @@ Before declaring the task done:
 - [ ] The diff is the minimal fix; related defects are finding candidates, not edits.
 - [ ] You issued no review result on your own work.
 
+## Gotchas
+
+Failure modes that show up at run time, not in the rules:
+
+- **You patched the symptom, not the root cause** — swallowed the error, clamped the value, or
+  special-cased the one triggering input — so the suite goes green and the cause stays live,
+  resurfacing through a different trigger after the task is closed. The first suspicious line is
+  usually downstream of the origin; if you cannot restate why this location *is* the cause, you
+  have not found it yet.
+- **You shipped without the red-before/green-after regression test** — wrote the test after the
+  patch and saw it pass, never seeing it fail. A test that is green before the fix exists is a
+  tautology that stays green when the fix is deleted, so it guards nothing. Patch the fix out, watch
+  it go red, restore the fix, watch it go green.
+- **You bundled a neighboring fix** — the confusing variable, the related defect two lines over —
+  into the same diff, because a fix task is the most tempting place to "just also fix" the thing
+  right next to the bug. Now the reviewer cannot tell which edit closed the reported defect. Each
+  neighbor is a finding candidate, not a second fix.
+
 ## Bundled resources
 
 - [`references/task-template.md`](./references/task-template.md) — a working-notes scaffold for the run: reproduction block,

@@ -46,7 +46,7 @@ next reader navigate straight to it; an ungrounded claim is an opinion wearing a
 
 Concurrency, lifecycle, resource cleanup — reading the source does not prove these. Run the
 project's test or check commands (the Commands table in the workspace `AGENTS.md`; if a command
-is missing, ask — never guess) and paste the output. The highest-value findings are properties
+is missing, ask, because a guessed command silently audits the wrong thing) and paste the output. The highest-value findings are properties
 that _look_ held in the source but are not held at runtime.
 
 ### 4. Grep for callers across the whole codebase
@@ -91,6 +91,22 @@ hidden across two audits.
 - TODO-comment scrapes, surface impressions, or any claim with no evidence anchor — sharpen
   each until it cites an observable, or cut it.
 - Code edits. An audit session is read-only on source; it produces a document.
+
+## Gotchas
+
+- **Prescribing a fix instead of recording present state.** An observation reads "extract this
+  into a helper" or "switch to a connection pool" — that is a spec's decision wearing an
+  observation's clothes. The reader lifts it into a plan as if the choice were already made and
+  approved, when all the audit was licensed to say is what the code does today and what risk that
+  carries.
+- **Asserting a structural claim without grepping it.** You write "this handler has no other
+  callers" or "the retry path is dead" from reading one file, never running the cross-module
+  search. A single uncited structural claim that turns out wrong discredits every finding around
+  it, and the live caller you missed is exactly the one the next change breaks.
+- **Ranking findings flat instead of by impact.** Every observation lands at the same weight, or
+  severity tracks how alarming a finding felt rather than its blast radius. The reader cannot tell
+  the one Blocker that lets unsafe work proceed from the cosmetic Minor beside it, and triages the
+  wrong thing first.
 
 ## Before you finish
 

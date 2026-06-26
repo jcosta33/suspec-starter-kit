@@ -104,6 +104,20 @@ threshold (docs/04's protocol rule) — and state a variance budget (N runs, the
 Evidence is the eval-run link or output under the same pinned protocol on both sides. The
 rules above apply unchanged; the Skip list still excludes net-new feature work.
 
+## Gotchas
+
+- **Edited before taking a baseline.** Code changed before the benchmark ran, so the reference point
+  is reconstructed after the fact and unfalsifiable — "improvement" has nothing fixed to measure
+  against. Run the benchmark and paste its output before touching the implementation.
+- **Mixed measurement protocols across the two sides.** The baseline was cold and the final warm (or
+  different sample counts, host, input shape, cache state), so the comparison "proves" a speedup
+  that does not exist. Record the protocol once and reuse it verbatim on both sides; if the figure
+  is noisy, add samples rather than trusting it.
+- **Batched unattributable changes so no single one is credited.** Several optimizations landed in
+  one change, so you cannot tell which moved the number, which regressed it, and which is dead
+  weight carried forward as risk. One benchmarked change at a time, full suite after each; a second
+  bottleneck is a finding candidate, not a second edit.
+
 ## Bundled resources
 
 - [`references/task-template.md`](./references/task-template.md) — a working-notes scaffold for the run (baseline block, target and

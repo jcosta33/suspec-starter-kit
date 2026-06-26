@@ -94,6 +94,23 @@ Before declaring the task done:
 - [ ] The summary names changed files, commands with output, and finding candidates; you issued no
       review result on your own work.
 
+## Gotchas
+
+Failure modes that show up at run time, not in the rules:
+
+- **You changed behavior under cover of "refactor"** — a "while I'm here" semantic tweak, a tidied
+  edge case, a contract nudged during a "cleanup" — and the task is no longer a refactor; it is a
+  rewrite or a migration wearing a refactor's label, reviewed against the wrong checks. The
+  tempting behavior tweak mid-move is a stop signal, not a bonus.
+- **You deleted a symbol without grep evidence of zero callers** — "I'm pretty sure it's unused"
+  instead of a pasted search — and a caller reached through dynamic dispatch, a registry,
+  reflection, or generated config survives the call-syntax search and fails in production. Grep the
+  call form *and* the string form, and paste both, before the symbol goes.
+- **You mistook a green suite for an equivalence check.** A passing suite covers only what was
+  already tested, so a behavior delta in an untested corner ships silently — and a test that goes
+  red after the change tempts you to "fix the test", which is how a rewrite disguises itself. A
+  failing test means behavior moved; investigate the code, not the assertion.
+
 ## Bundled resources
 
 - [`references/task-template.md`](./references/task-template.md) — a working-notes scaffold for the run (equivalence check, batch

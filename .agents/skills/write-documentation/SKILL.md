@@ -76,6 +76,25 @@ task template.
 | "While I'm here" polish of neighboring docs      | Finding candidate; document only what the task names      |
 | A doc-vs-code discrepancy smoothed over in prose | Blocked question; the spec changes through its own review |
 
+## Gotchas
+
+- **Mixing Diátaxis frames in one doc.** A how-to drifts into explaining the why, or a
+  reference grows a hand-holding walkthrough. The reader who came to *do* one task now wades
+  through theory, and the reader who came to *understand* hits a recipe — the doc serves
+  neither because it answers two questions at once. The drift is the signal it is two docs.
+- **Shipping an example that was never run.** You paste a snippet that looks right —
+  plausible imports, the obvious call — without executing it. The reader runs it first and
+  hits the missing setup or the renamed argument you would have caught. An unrun example is
+  a hypothesis, and it is the most common way a doc lies.
+- **Hedging with should/might/could.** Unsure whether the behavior is guaranteed, you write
+  "this should retry" to stay safe. The reader cannot act on it — does it retry or not? —
+  and the hedge hid the one thing they needed: either state the behavior, or state the
+  condition under which it holds.
+- **Documenting beyond the task's requirements.** A neighboring section looks thin and you
+  polish it "while I'm here." That unrequested edit widens the diff past what the task
+  named, drags in claims you did not verify against the code, and is an exception trigger at
+  review — the extra doc is a finding candidate, not in-scope work.
+
 ## Self-review gate
 
 Before declaring the task done:

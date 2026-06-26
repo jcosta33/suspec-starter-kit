@@ -62,7 +62,7 @@ and directories each will touch (each packet's Affected areas) and compare. Same
 lists → they are one sequence, not two parallel tasks: pick an order and record it.
 
 ```text
-Two tasks may run in parallel only if ALL of these hold:
+Two tasks may run in parallel only if every one of these holds:
   1. neither depends on the other — directly or through a chain;
   2. they write no file or directory in common;
   3. neither reads files the other writes;
@@ -124,6 +124,25 @@ gitignored `.corpus/`. The implementer then reads the pinned snapshot, not a cro
 and the spec cannot drift mid-task. Re-cut the task if the canonical spec changes materially.
 The external workspace stays canonical; the in-code copy is a marked execution snapshot, not
 authoritative. (Grounding: [Corpus ADR-0100](https://github.com/jcosta33/corpus/blob/main/docs/adrs/0100-spec-external-ops-local-mode.md).)
+
+## Gotchas
+
+- **Two tasks that write the same file got parallelized → merge collision.** The
+  feature work looked disjoint, so they were called parallel — but both edit a
+  shared config, schema migration, or public interface. At run time the second
+  task's diff lands on a file the first already changed, and you get a conflict no
+  one sequenced for. The collision that matters is _writes_: compare the listed
+  Affected-areas paths before declaring any pair parallel, and let shared
+  surfaces serialize.
+- **Invented a requirement while splitting.** You spot a gap the spec never
+  decided and quietly write the missing behavior into a task's Scope. That
+  requirement now exists only in a packet — it was never reviewed as part of the
+  spec, and the reviewer has nothing to check it against. Route the gap back to
+  the spec (or its Open questions); don't patch it in the split.
+- **Cut a task from a requirement with an open blocking question.** Splitting a
+  requirement whose blocking question is still open commits a guess: the agent
+  builds against an answer nobody gave. A requirement isn't ready to become a task
+  until its blocking questions close.
 
 ## Before you finish
 

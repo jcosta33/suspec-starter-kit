@@ -111,6 +111,21 @@ the reader back the question they came with.
 - Sources you did not actually consult.
 - Code edits — a research session is read-only on source; it produces a document.
 
+## Gotchas
+
+- **Presenting an opinion as a finding.** An R-NNN entry asserts "library X is the better fit"
+  with an evidence field that just restates the claim, no source, command, or recorded output
+  behind it. It looks like a finding because it has an id, but an id does not make it checkable;
+  the spec that later cites R-007 inherits a hunch dressed as established fact.
+- **Citing a blog without its primary source.** A finding rests on a vendor post or a
+  conference-talk recap, and the underlying RFC, paper, or benchmark it summarizes is never run
+  down or cited. A citation only carries the authority of its source — quote the secondary piece
+  and you inherit its spin, its missing caveats, and any number it got wrong in the retelling.
+- **Settling the open question instead of surfacing options.** The note quietly picks a winner —
+  "we should use X" in the body, or an Open question resolved by assertion — when its job was to
+  map the decision space and hand it over intact. The person who owns the decision never sees the
+  alternatives were live, and a choice nobody deliberated arrives looking already made.
+
 ## Before you finish
 
 - [ ] The question is stated first and the whole note answers it — no scope drift.

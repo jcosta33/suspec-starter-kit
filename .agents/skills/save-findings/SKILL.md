@@ -75,6 +75,20 @@ load-when index, a glossary, patterns built from corroborated findings, and the 
 protocol that this close flow is the simple core of. Adopt it when grep stops being enough,
 not before.
 
+## Gotchas
+
+- **Saving a finding with no evidence link.** The lesson feels obviously true, so you write
+  the claim and skip the link to the review packet, PR, or pasted output. An evidence-free
+  finding is a rumor with a filename — when someone doubts it in November, there is nothing
+  to re-check, and the finding quietly loses the next argument it should have won.
+- **Writing findings mid-task instead of at Close.** A quirk bites you, so you spin up a
+  finding file right then. The packet's `## Findings` section is the staging area until
+  Close; premature files skip the deliberate keep-or-drop sweep and the board update, so
+  they never get listed as pending acceptance and rot unread.
+- **Packing several lessons into one file under a generic title.** Three discoveries land in
+  "notes-from-task-12." Findings come back only through grep and the board — a grab-bag is
+  unsearchable, and you cannot retract one claim in it without dragging the others along.
+
 ## Before you finish
 
 - [ ] Every candidate in the task packet's Findings section was saved or deliberately dropped.

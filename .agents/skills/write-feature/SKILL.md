@@ -87,6 +87,20 @@ Before declaring the task done:
 - [ ] The summary names changed files, commands with output, and finding candidates; you issued no
       review result on your own work.
 
+## Gotchas
+
+Failure modes that show up at run time, not in the rules:
+
+- **You coded the change before mapping each AC to a part of it**, so the diff grew around the
+  feature and one AC turns out to have no code behind it — found at self-review if you are lucky,
+  by the reviewer if not. The map is cheap before the first edit and expensive to reconstruct after.
+- **You refactored neighboring code "in passing"** — renamed a confusing variable, tidied a helper
+  the feature merely touched — and now the reviewer cannot separate the new behavior from the
+  drive-by cleanup. The whole diff reads as suspect even where it is correct.
+- **You hit an ambiguous AC and invented the requirement** to keep moving, committing a product
+  decision nobody made and burying it in code where no one will see it until it ships wrong. A
+  guess feels like progress and reads like a spec; surface it instead.
+
 ## Bundled resources
 
 - [`references/task-template.md`](./references/task-template.md) — a working-notes scaffold for the run (plan, progress, decisions,

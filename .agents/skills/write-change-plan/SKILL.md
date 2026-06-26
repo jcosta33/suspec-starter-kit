@@ -99,6 +99,25 @@ review of each wave's tasks is where it pays off.
 - **Schema-change.** Waves are expand → migrate → contract; the bridge release is mandatory,
   not optional — data has consumers you can't redeploy.
 
+## Gotchas
+
+- **Wrote "no behavior change" instead of enumerating what's preserved.** "No behavior change" is
+  unverifiable — there's no row to paste output against, so the review packet can't check it and a
+  drift in an untested corner ships silently. With enough users every observable behavior is
+  depended on; enumerate each as a guarantee row (`ID | Behavior | Verify with`) the same way a
+  requirement gets a verify line.
+- **A guarantee row whose Verify with is just the suite.** A green suite covers only what was
+  already tested, so a behavior change in an untested corner passes it. Prefer a check that *would
+  fail if the behavior changed* — golden capture, differential run, property test; where the suite
+  is all you have, write down in the plan why it's sufficient for this change.
+- **A wave that leaves the build red.** A wave is the smallest change that still compiles and
+  passes — if one leaves the tree broken, there's no checkpoint to catch drift and the next wave's
+  failure can't be attributed. A wave that can't name its verify step isn't a wave yet, it's a hope.
+- **Planned the migration to "mostly gone."** Old-API callsites counted only across the scoped
+  modules miss dynamic dispatch, registry lookups, generated code, and fixtures — the half-migration
+  that never closes. Plan the count to zero across the whole codebase, and leave no shim without a
+  checkable removed-when condition.
+
 ## Before you finish
 
 - [ ] Baseline cites the inventory; Target says what stays unchanged.

@@ -100,6 +100,22 @@ Every line points at a requirement ID or section, so the author's fix is unambig
 ready" here is your recommendation — whether it blocks anything is the team's policy, not
 Corpus's.
 
+## Gotchas
+
+- **Fixed the spec while checking it.** You spot a typo or an empty Non-goals
+  section and "just fix it" mid-pass. Now the report and the file disagree, and
+  the author can't tell what you found from what you silently changed. Checking
+  and editing are separate steps — report it, then switch hats if you must.
+- **Passed a spec with a `{{placeholder}}` still in it.** A template token like
+  `{{feature}}` or an unfilled `Verify with: {{...}}` slid through because no core
+  check names it explicitly — but C007's spirit (no unresolved `TBD`/`TODO`) and
+  C003 (a real `Verify with:` line) both catch it. An unresolved placeholder at
+  `status: ready` is a hard error, not cosmetic.
+- **Watchlist hit reported as a hard error.** A vague word ("handles errors
+  gracefully") is a warning by convention — word-detection is imprecise, so it
+  advises and a human decides. Reporting it as a blocker, or skipping the
+  same-line rule that would have cleared it, both miscalibrate the report.
+
 ## Before you finish
 
 - [ ] The spec file is byte-for-byte unchanged — a diff proves it.

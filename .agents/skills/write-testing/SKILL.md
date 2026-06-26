@@ -81,6 +81,25 @@ template.
 | A bug the test exposed, fixed inline                  | Record it as a finding; the fix is its own task guarded by this test  |
 | "It usually passes"                                   | Make it deterministic, or surface stabilization as its own task       |
 
+## Gotchas
+
+- **Asserting on internals instead of the public surface.** The private method is right
+  there and easy to reach, so the test pokes at it directly. The next behavior-preserving
+  refactor renames or inlines it and the test goes red — a false failure that says the
+  refactor broke something when nothing a caller observes changed.
+- **Chasing a coverage percentage instead of a behavior.** The task says "get this file to
+  85%", so you write tests that execute the uncovered lines without asserting anything a
+  caller depends on. Coverage goes green and the untested behavior is still untested — the
+  number measured the test's reach, not its grip.
+- **Shipping a test without flipping the assertion to prove it can fail.** It passes on the
+  first run, so you call it done. A test that has never been seen to fail might be
+  tautological, fire for an unrelated reason, or never execute at all — "it's green" is
+  unfalsifiable until you have watched it go red for the right reason.
+- **Editing production code to make a test easier to write.** A seam is awkward, so you
+  loosen a visibility modifier or add a test-only hook to the shipping code. That inverts
+  the dependency — the test now exists because of a change made for the test — and the
+  hard-to-test design that should have been a finding is quietly papered over.
+
 ## Self-review gate
 
 Before declaring the task done:
