@@ -17,6 +17,13 @@ not customized (see `docs/ADOPTING.md` → _Upgrading_ in the Corpus repo).
 - `.gitignore.additions` — ignore `*.corpus-bak` backups left by `corpus update --write` (corpus-cli),
   so they are not committed or flagged as out-of-scope changes by `corpus review`.
 
+### Removed
+
+- `adversarial-review` skill — **relocated to the corpus-skills catalog** (corpus ADR-0111): a review
+  *style* is not a Corpus concept (Corpus mandates the review artifact, not how you review). Install it
+  with `npx skills add jcosta33/corpus-skills --skill adversarial-review`. `review-output` (which builds
+  the review packet) stays in the kit.
+
 ### Changed
 
 - Spec template + `write-spec`: the `## Open questions` section is now filled with **options + a
