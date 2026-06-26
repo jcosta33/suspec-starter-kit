@@ -77,3 +77,5 @@ Verify with: `{{test-name-or-command}}`
 - Verify results: {{one line per AC's `Verify with:` command, citing the pasted output}}
 - Run summary: {{changed files; out-of-scope edits with reasons; blocked questions}}
 - Self-review (ADR-0056): {{what you attacked; what it surfaced + fixed; residual risk for the reviewer}}
+- Finding candidates: {{slugs of durable lessons — promote each to findings/<slug>.md (corpus promote)
+  or omit. `corpus check` flags a named candidate that never landed (promotion-or-die, ADR-0106).}}
