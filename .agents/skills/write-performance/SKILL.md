@@ -100,7 +100,7 @@ Before declaring the task done:
 
 An eval-gated requirement (NDCG, accuracy, win rate) runs the same discipline with one delta:
 the measurement is stochastic, so pin the protocol — seed or fixed dataset/holdout, metric,
-threshold (docs/04's protocol rule) — and state a variance budget (N runs, the aggregate).
+threshold — and state a variance budget (N runs, the aggregate).
 Evidence is the eval-run link or output under the same pinned protocol on both sides. The
 rules above apply unchanged; the Skip list still excludes net-new feature work.
 

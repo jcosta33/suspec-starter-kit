@@ -20,8 +20,8 @@ proves nothing, because it stays green if the fix is deleted. This guide adds th
 top of the base `implement-task` rules. These are conventions the review packet inspects — nothing
 enforces them at edit time.
 
-Writing the bug _report_ is a different job with its own guide in the starter kit's advanced tier
-(`write-bug-report`) — this guide consumes a report and produces the fix. A test that fails
+Writing the bug _report_ is a separate job with its own guide, `write-bug-report`, in this kit —
+this guide consumes a report and produces the fix. A test that fails
 _sometimes_ is a different oracle entirely: load `fix-flaky-test`, not this.
 
 **Before you start, open [`references/task-template.md`](./references/task-template.md)** and copy it

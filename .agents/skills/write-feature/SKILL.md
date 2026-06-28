@@ -22,7 +22,7 @@ conventions the review packet inspects — nothing enforces them at edit time.
 
 A feature adds capability that did not exist. Repairing a defect, restructuring without a behavior
 change, deliberately changing existing behavior, moving between APIs, and tuning a bottleneck are
-different kinds with their own guides in this library.
+different kinds with their own guides in this kit.
 
 **Before you start, open [`references/task-template.md`](./references/task-template.md)** and copy it
 into your task file — it is the session frame for this work; fill it in as you go (don't reconstruct

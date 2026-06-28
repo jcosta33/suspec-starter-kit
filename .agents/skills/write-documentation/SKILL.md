@@ -23,7 +23,7 @@ are conventions the review packet inspects — nothing enforces them at edit tim
 
 This guide is for docs humans read. Agent-facing material (guides, templates, workflow docs) is a
 different audience with different conventions, and code-changing work belongs to the other guides
-in this library.
+in this kit.
 
 **Before you start, open [`references/task-template.md`](./references/task-template.md)** and copy it
 into your task file — it is the session frame for this work; fill it in as you go (don't reconstruct
