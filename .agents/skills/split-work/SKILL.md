@@ -77,7 +77,7 @@ what it writes is assumed to collide with everything — sequence it. **Shared s
 schema migration or a public interface is a hidden meeting point even when the feature work
 looks disjoint. Parallelism is the opt-in, earned by demonstrated disjointness; sequencing is
 the default. All of this is a convention checked by hand against the listed paths — splitting
-work is judgment work, and no Corpus tooling does it for you.
+work is judgment work, and no Suspec tooling does it for you.
 
 ## Write the dependency order down
 
@@ -119,7 +119,7 @@ verifies.
 When a dedicated workspace governs a separate code repo, keep the implementer single-root.
 Snapshot the requirement slice each task covers **into** the task packet — stamped with the
 spec id and the version/commit it was cut against — and place the task in the code repo's
-gitignored `.corpus/`. The implementer then reads the pinned snapshot, not a cross-repo path,
+gitignored `.suspec/`. The implementer then reads the pinned snapshot, not a cross-repo path,
 and the spec cannot drift mid-task. Re-cut the task if the canonical spec changes materially.
 The external workspace stays canonical; the in-code copy is a marked execution snapshot, not
 authoritative.
@@ -155,4 +155,4 @@ authoritative.
 - [ ] The run order is written down where the next person will look.
 - [ ] Each packet reads as self-contained: source, scope, do-not-change, verify.
 - [ ] Spec-external mode: each task carries a pinned spec-slice snapshot and lands in the code
-      repo's gitignored `.corpus/`.
+      repo's gitignored `.suspec/`.

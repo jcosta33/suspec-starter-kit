@@ -2,12 +2,12 @@
 
 Where **transitory** workspace output goes to age out, so the live tree stays navigable.
 
-Corpus splits artifacts into two classes (Corpus ADR-0096):
+Suspec splits artifacts into two classes (Suspec ADR-0096):
 
 - **Durable records** — specs of record, decisions (ADRs in `decisions/`), and saved `findings/` —
   persist for the repo's life. They are **superseded, never deleted**: mark a reversed one
   `superseded-by-NNNN`, keep it, and give it a named owner.
-- **Transitory output** — review packets, `corpus check` output, run logs — has short-term value.
+- **Transitory output** — review packets, `suspec check` output, run logs — has short-term value.
   Once a task is closed and its durable record (the finding, the merged PR) captures what mattered,
   the rest can age out.
 

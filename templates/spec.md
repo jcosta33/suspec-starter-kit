@@ -8,7 +8,7 @@ owner: {{team-or-person}}
 reviewed: {{YYYY-MM-DD — refresh date for this durable record}}
 # superseded_by: SPEC-…   # set ONLY when a whole feature is replaced — otherwise amend in place (ADR-0108)
 # snapshot: <commit-sha>  # OPTIONAL: the code state this text was last written against. Set/refresh it
-#                         # on each amendment to enable `corpus check --staleness` (diffs Affected
+#                         # on each amendment to enable `suspec check --staleness` (diffs Affected
 #                         # areas since this SHA; advisory only, ADR-0108).
 sources:
   - {{ticket-id-or-intake-file — or "self" when the work originates with you}}
@@ -30,7 +30,7 @@ sources:
      earlier instructions more). Each requirement gets a "Verify with:" line —
      it is the highest-value line in this file; prefer a runnable test or
      command. Prefer stricter notation? Any spec can use SOL blocks instead:
-     add "format: sol" to the frontmatter. Reference: the Corpus repo's
+     add "format: sol" to the frontmatter. Reference: the Suspec repo's
      `docs/reference/structured-requirements.md`.
      Living spec (ADR-0108): an AC keeps its id for life. Amend its text in place as the feature
      evolves; to retire one, mark it superseded in place — `### AC-001 — name (superseded by AC-007,
@@ -76,7 +76,7 @@ Verify with: `{{test-name-or-command}}`
      Each change-cycle entry is a STRUCTURED change-record (ADR-0110): scope touched, the AC→evidence
      digest, and the staleness pins — the durable residue of the (ephemeral) review, so the
      requirement→evidence linkage survives the review evaporating (ADR-0104/0107). A prose entry is
-     still valid; the structured form is recommended and `corpus stamp` writes the pins. -->
+     still valid; the structured form is recommended and `suspec stamp` writes the pins. -->
 
 - **{{YYYY-MM-DD — one-line change summary}}** ({{repo}} `{{short-sha}}`).
   - Scope: {{ACs added / amended / superseded + areas actually touched}}
@@ -84,6 +84,6 @@ Verify with: `{{test-name-or-command}}`
     link / named check); empty evidence reads Unverified, never Pass}}
   - Run summary: {{changed files; out-of-scope edits with reasons; blocked questions}}
   - Self-review (ADR-0056): {{what you attacked; what it surfaced + fixed; residual risk for the reviewer}}
-  - reviewed-sha: {{code SHA reviewed}} · evidence-hash: {{ADR-0107 digest — written by `corpus stamp`}}
-  - Finding candidates: {{slugs of durable lessons — promote each to findings/<slug>.md (corpus promote)
-    or omit. `corpus check` flags a named candidate that never landed (promotion-or-die, ADR-0106).}}
+  - reviewed-sha: {{code SHA reviewed}} · evidence-hash: {{ADR-0107 digest — written by `suspec stamp`}}
+  - Finding candidates: {{slugs of durable lessons — promote each to findings/<slug>.md (suspec promote)
+    or omit. `suspec check` flags a named candidate that never landed (promotion-or-die, ADR-0106).}}

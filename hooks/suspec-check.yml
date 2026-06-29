@@ -1,13 +1,13 @@
-# Corpus spec-check — the authoritative gate.
+# Suspec spec-check — the authoritative gate.
 #
-# Copy to .github/workflows/corpus-check.yml in your workspace repo. It runs `corpus check` over the
+# Copy to .github/workflows/suspec-check.yml in your workspace repo. It runs `suspec check` over the
 # workspace on every pull request and on pushes to main: exit 2 fails the job (blocking), exit 1
 # annotates a warning, exit 0 passes. Unlike the local pre-commit hook this does NOT fail open —
 # CI is where the contract is enforced.
 #
-# corpus-cli is not yet on npm, so this installs it from source. Once it is published, replace the
-# install step with: `npm i -g @corpus/cli` (or your published name).
-name: corpus check
+# suspec-cli is not yet on npm, so this installs it from source. Once it is published, replace the
+# install step with: `npm i -g @suspec/cli` (or your published name).
+name: suspec check
 
 # No `paths:` filter on purpose: if you make this a required status check, a path filter would
 # leave it stuck "pending" (never reporting) on PRs that touch nothing under specs/ — blocking the
@@ -18,7 +18,7 @@ on:
     branches: [main]
 
 jobs:
-  corpus-check:
+  suspec-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,25 +27,25 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Install corpus-cli (from source — not yet on npm)
+      - name: Install suspec-cli (from source — not yet on npm)
         run: |
-          git clone --depth 1 https://github.com/jcosta33/corpus-cli "$RUNNER_TEMP/corpus-cli"
-          cd "$RUNNER_TEMP/corpus-cli"
+          git clone --depth 1 https://github.com/jcosta33/suspec-cli "$RUNNER_TEMP/suspec-cli"
+          cd "$RUNNER_TEMP/suspec-cli"
           npm install --no-audit --no-fund
           npm run build
 
-      - name: corpus check
+      - name: suspec check
         shell: bash
         run: |
           set +e
-          node "$RUNNER_TEMP/corpus-cli/dist/index.js" check
+          node "$RUNNER_TEMP/suspec-cli/dist/index.js" check
           rc=$?
           set -e
           if [ "$rc" -ge 2 ]; then
-            echo "::error::corpus check found blocking issues — see the log above."
+            echo "::error::suspec check found blocking issues — see the log above."
             exit 1
           fi
           if [ "$rc" -eq 1 ]; then
-            echo "::warning::corpus check found non-blocking warnings — see the log above."
+            echo "::warning::suspec check found non-blocking warnings — see the log above."
           fi
           exit 0

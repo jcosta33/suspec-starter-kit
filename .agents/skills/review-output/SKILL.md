@@ -17,16 +17,16 @@ The review packet (`templates/review.md`) turns a large diff into requirement
 coverage, evidence, and a short list of things a human must look at. Your
 stance is refute-by-default: "done" is a claim until evidence forces you to
 agree. The hard rules below are review-checklist conventions — nothing in the
-kit enforces them. (The optional `corpus review --write` drafts the requirement-coverage
+kit enforces them. (The optional `suspec review --write` drafts the requirement-coverage
 table — every row Unverified; the change-plan coverage table and the rest you or your agent fill.)
 
 ## Rules
 
 1. **Never review your own implementation.** If you wrote the diff, hand the
    review to another agent or a person. For fresh-context independence, delegate
-   to the `corpus-reviewer` agent (corpus-agents): it runs in an isolated context
+   to the `suspec-reviewer` agent (suspec-agents): it runs in an isolated context
    the parent can't prime and returns the packet, not a recommendation to the
-   parent thread — optional, only if you've installed corpus-agents. _Why: authors
+   parent thread — optional, only if you've installed suspec-agents. _Why: authors
    favor their own output; independence is what makes the packet worth reading._
 2. **The worker's paste is a claim; your run is evidence.** Re-run the checks
    yourself wherever possible — resolve commands from the AGENTS.md `Commands`

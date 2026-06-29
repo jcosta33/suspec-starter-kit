@@ -5,8 +5,8 @@ task: TASK-{{slug}}
 # spec: SPEC-…   # use INSTEAD of task: for a 1:1 review with no task — coverage then reconciles against
 #                # the whole spec's ACs (ADR-0103 review-to-spec). task: takes precedence when both are set.
 # reviewed_sha: <sha>     # OPTIONAL fast-track (ADR-0107): the commit you reviewed, plus an
-# evidence_hash: <digest> # evidence digest (copy it from `corpus review --json` / the report header).
-#                         # `corpus review` re-validates the digest and flags the review Stale (re-review)
+# evidence_hash: <digest> # evidence digest (copy it from `suspec review --json` / the report header).
+#                         # `suspec review` re-validates the digest and flags the review Stale (re-review)
 #                         # if the diff or the cited evidence drifts — detection, never a self-verdict.
 pr: "{{pr-url — or 'none yet' for a pre-PR or trunk-based review}}"
 reviewer: "{{the review lead — never the implementer (the spec/task author may, if they didn't implement)}}"
@@ -53,7 +53,7 @@ status: "{{draft | pass | waived | blocked | needs-human}}"
 <!-- Optional — structured evidence (ADR-0083; checked by C013): a coverage row may carry,
      directly beneath the table, a fenced code block whose info-string is
      `verify id=AC-NNN cmd="<the requirement's named Verify-with command>" result=pass|fail`.
-     That info-string is the machine-checkable form `corpus check` / `corpus review` reconciles
+     That info-string is the machine-checkable form `suspec check` / `suspec review` reconciles
      against the spec's named command; the block's body is the verbatim paste — for you and the
      spot-check — and is never parsed for a review result. Opt-in: a row may use only the free-form
      Evidence cell and stays a human-attention warning. The check surfaces a consistency fact
@@ -80,7 +80,7 @@ Spot-checked: {{which green row's evidence you re-ran yourself}}
      silently failed to load, or a worker that left no task artifact at all) —
      investigate, don't rubber-stamp. A waived row records: who waived · which
      rows · why · expiry — the packet status becomes `waived` at merge
-     (expiry semantics: the advanced lifecycle, in the Corpus repo). -->
+     (expiry semantics: the advanced lifecycle, in the Suspec repo). -->
 
 1. {{exception — why it matters — suggested action}}
 

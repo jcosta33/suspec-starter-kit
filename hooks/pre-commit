@@ -1,42 +1,42 @@
 #!/bin/sh
-# Corpus pre-commit hook — runs `corpus check` on the staged spec/review files.
+# Suspec pre-commit hook — runs `suspec check` on the staged spec/review files.
 #
-# This is a FAIL-OPEN convenience gate: if corpus-cli is not on PATH it skips with a hint and never
-# blocks a teammate who hasn't installed the tool. CI is the authoritative gate (see corpus-check.yml).
-# It is kept fast (only staged files, only when corpus is already installed) so it never gets
+# This is a FAIL-OPEN convenience gate: if suspec-cli is not on PATH it skips with a hint and never
+# blocks a teammate who hasn't installed the tool. CI is the authoritative gate (see suspec-check.yml).
+# It is kept fast (only staged files, only when suspec is already installed) so it never gets
 # `--no-verify`'d into irrelevance.
 #
 # Install:
 #   cp hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
-# (corpus-cli is not yet on npm — install it from source: https://github.com/jcosta33/corpus-cli)
+# (suspec-cli is not yet on npm — install it from source: https://github.com/jcosta33/suspec-cli)
 
-if ! command -v corpus >/dev/null 2>&1; then
-    echo "corpus: corpus-cli not on PATH — skipping the spec check (CI is the authoritative gate)."
-    echo "       install from source: https://github.com/jcosta33/corpus-cli"
+if ! command -v suspec >/dev/null 2>&1; then
+    echo "suspec: suspec-cli not on PATH — skipping the spec check (CI is the authoritative gate)."
+    echo "       install from source: https://github.com/jcosta33/suspec-cli"
     exit 0
 fi
 
 # Only the staged spec/review markdown files (added/copied/modified). Task files are not gated here:
-# `corpus check` has no task-checks yet, so a staged task would draw misleading spec diagnostics —
+# `suspec check` has no task-checks yet, so a staged task would draw misleading spec diagnostics —
 # add `tasks` back once task checks ship. The per-directory index READMEs (specs/README.md,
 # reviews/README.md) are excluded: they are not artifacts, carry no frontmatter, and would otherwise
-# make `corpus check` error and block the FIRST commit of a freshly-scaffolded workspace.
+# make `suspec check` error and block the FIRST commit of a freshly-scaffolded workspace.
 files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^(specs|reviews)/.+\.md$' | grep -vE '(^|/)README\.md$' || true)
 [ -z "$files" ] && exit 0
 
 status=0
 for f in $files; do
-    corpus check "$f"
+    suspec check "$f"
     rc=$?
     [ "$rc" -gt "$status" ] && status="$rc"
 done
 
-# Exit codes (corpus-cli unixOutcome): 0 clean · 1 warnings · 2 blocking/error.
+# Exit codes (suspec-cli unixOutcome): 0 clean · 1 warnings · 2 blocking/error.
 if [ "$status" -ge 2 ]; then
-    echo "corpus: blocking check failure (above). Fix it, or 'git commit --no-verify' to override — CI still gates."
+    echo "suspec: blocking check failure (above). Fix it, or 'git commit --no-verify' to override — CI still gates."
     exit 1
 fi
 if [ "$status" -eq 1 ]; then
-    echo "corpus: non-blocking warnings (above)."
+    echo "suspec: non-blocking warnings (above)."
 fi
 exit 0

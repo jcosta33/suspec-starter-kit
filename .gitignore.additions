@@ -1,26 +1,26 @@
-# Corpus — append to a CODE repo's .gitignore. The Corpus workspace commits its
+# Suspec — append to a CODE repo's .gitignore. The Suspec workspace commits its
 # specs, tasks, reviews, and findings; only code-repo scratch is ignored here.
 
 # Agent scratch and transient task hand-offs
 .agents/tmp/
 tmp/
 
-# Local state of the future Corpus CLI (machine state, never committed)
-.corpus/
+# Local state of the future Suspec CLI (machine state, never committed)
+.suspec/
 
-# Backups `corpus update --write` leaves when it replaces a customized kit file (reconcile, then delete).
-*.corpus-bak
-*.corpus-bak.*
+# Backups `suspec update --write` leaves when it replaces a customized kit file (reconcile, then delete).
+*.suspec-bak
+*.suspec-bak.*
 
-# Generated agent definitions (`corpus agents emit --codex`) — regenerate from the source defs, never commit.
+# Generated agent definitions (`suspec agents emit --codex`) — regenerate from the source defs, never commit.
 .codex/
 
-# Isolated task worktrees (`corpus worktree create` puts them here, inside the repo) — committing one
+# Isolated task worktrees (`suspec worktree create` puts them here, inside the repo) — committing one
 # stages an embedded gitlink, never what you want.
 .worktrees/
 
 # If this workspace is CO-LOCATED with your code (the same repo holds specs/ and the app), add your
-# language's build/cache ignores too, or `corpus review` will flag committed bytecode/artifacts as
+# language's build/cache ignores too, or `suspec review` will flag committed bytecode/artifacts as
 # out-of-scope changes. Common ones (uncomment what applies):
 #   __pycache__/   *.py[cod]        # Python
 #   node_modules/  dist/            # Node
