@@ -19,8 +19,8 @@ cp hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 ```
 
 It runs `suspec check` on the staged files under `specs/`, `reviews/`, and `tasks/`. It only does
-anything if `suspec` is on your PATH — suspec-cli is not yet on npm, so install it from source first
-(<https://github.com/jcosta33/suspec-cli>). With no `suspec` on PATH it prints a hint and exits clean.
+anything if `suspec` is on your PATH — suspec-cli is not yet on npm, so install it from the published
+source instructions first. With no `suspec` on PATH it prints a hint and exits clean.
 
 To override a blocking result for one commit: `git commit --no-verify` (CI will still gate the merge).
 

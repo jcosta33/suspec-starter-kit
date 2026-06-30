@@ -72,7 +72,7 @@ table — every row Unverified; the change-plan coverage table and the rest you 
     Never soften a Fail to avoid blocking, and never inflate a nit into a
     blocker.
 11. **Close the board row.** When the decision lands, flip the task's row on
-    `status.md` — review-ready → closed (or blocked) — and put the packet
+    `status.md` — review-ready → closed (or blocked) when a task row exists — and put the packet
     link in the row. The sessions maintain the board; the human reads it.
 
 ## Refuses

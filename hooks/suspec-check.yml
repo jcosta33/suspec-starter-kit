@@ -28,8 +28,11 @@ jobs:
           node-version: "22"
 
       - name: Install suspec-cli (from source — not yet on npm)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SUSPEC_CLI_REPO: jcosta33/suspec-cli
         run: |
-          git clone --depth 1 https://github.com/jcosta33/suspec-cli "$RUNNER_TEMP/suspec-cli"
+          gh repo clone "$SUSPEC_CLI_REPO" "$RUNNER_TEMP/suspec-cli" -- --depth 1
           cd "$RUNNER_TEMP/suspec-cli"
           npm install --no-audit --no-fund
           npm run build

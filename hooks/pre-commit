@@ -8,11 +8,11 @@
 #
 # Install:
 #   cp hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
-# (suspec-cli is not yet on npm — install it from source: https://github.com/jcosta33/suspec-cli)
+# (suspec-cli is not yet on npm — install it from the published source instructions.)
 
 if ! command -v suspec >/dev/null 2>&1; then
     echo "suspec: suspec-cli not on PATH — skipping the spec check (CI is the authoritative gate)."
-    echo "       install from source: https://github.com/jcosta33/suspec-cli"
+    echo "       install suspec-cli from the published source instructions first."
     exit 0
 fi
 

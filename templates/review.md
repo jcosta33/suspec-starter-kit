@@ -3,8 +3,8 @@ type: review
 id: REVIEW-{{slug}}
 task: TASK-{{slug}}
 # spec: SPEC-…   # use INSTEAD of task: for a 1:1 review with no task — coverage then reconciles against
-#                # the whole spec's ACs (ADR-0103 review-to-spec). task: takes precedence when both are set.
-# reviewed_sha: <sha>     # OPTIONAL fast-track (ADR-0107): the commit you reviewed, plus an
+#                # the whole spec's ACs. task: takes precedence when both are set.
+# reviewed_sha: <sha>     # OPTIONAL fast-track: the commit you reviewed, plus an
 # evidence_hash: <digest> # evidence digest (copy it from `suspec review --json` / the report header).
 #                         # `suspec review` re-validates the digest and flags the review Stale (re-review)
 #                         # if the diff or the cited evidence drifts — detection, never a self-verdict.
@@ -21,8 +21,8 @@ status: "{{draft | pass | waived | blocked | needs-human}}"
 
 ## Review plan
 
-<!-- ADR-0099 — for an orchestrated (lead) review. The lead reads the task, cited
-     spec, run summary, and diff, then runs at least three independent lens
+<!-- For an orchestrated (lead) review. The lead reads the task, cited spec, run summary, and diff,
+     then runs at least three independent lens
      reviewers (default: requirement correctness · verification/evidence/repro ·
      maintainability/design risk; add security, migration, performance, a11y, etc.
      as the change warrants). Each lens returns findings + evidence only; the lead
@@ -50,8 +50,8 @@ status: "{{draft | pass | waived | blocked | needs-human}}"
      under the task's Verify items — the Run summary section digests it; a failed or
      missing suite routes below via the missing-test-output trigger. -->
 
-<!-- Optional — structured evidence (ADR-0083; checked by C013): a coverage row may carry,
-     directly beneath the table, a fenced code block whose info-string is
+<!-- Optional — structured evidence: a coverage row may carry, directly beneath the table,
+     a fenced code block whose info-string is
      `verify id=AC-NNN cmd="<the requirement's named Verify-with command>" result=pass|fail`.
      That info-string is the machine-checkable form `suspec check` / `suspec review` reconciles
      against the spec's named command; the block's body is the verbatim paste — for you and the
@@ -86,11 +86,10 @@ Spot-checked: {{which green row's evidence you re-ran yourself}}
 
 ## Open decisions
 
-<!-- Optional (ADR-0089) — include ONLY when this work closes with a decision the
-     human must make. Delete the section entirely when nothing is open; it is not
-     boilerplate. Frame the fork, don't bury it in bullets: the developer is
-     orchestrating several agents and is context-poor right now, while you still
-     hold this work's context. For each open decision:
+<!-- Optional — include ONLY when this work closes with a decision the human must make. Delete the
+     section entirely when nothing is open; it is not boilerplate. Frame the fork, don't bury it in
+     bullets: the developer is orchestrating several agents and is context-poor right now, while you
+     still hold this work's context. For each open decision:
        - the decision (one line)
        - 2–4 comparable options, each with its tradeoff — the case FOR and AGAINST
        - a recommendation + a brief why (skippable — you present, the human decides)
@@ -103,11 +102,11 @@ Spot-checked: {{which green row's evidence you re-ran yourself}}
 
 ## Task status
 
-<!-- At closeout, confirm the task's board row AND the task packet's own
-     `status:` frontmatter are updated together — review-ready → closed (or
-     blocked). A worker that boots from a stale packet inherits stale state.
-     "Committed, runtime/human validation pending" = this packet `needs-human`
-     + the task `review-ready`; don't invent new states. -->
+<!-- At closeout, if this packet is tied to a task, confirm the task's board row AND the task
+     packet's own `status:` frontmatter are updated together — review-ready → closed (or blocked).
+     A worker that boots from a stale packet inherits stale state. "Committed, runtime/human
+     validation pending" = this packet `needs-human` + the task `review-ready`; don't invent new
+     states. -->
 
 {{board row + packet status updated to … }}
 

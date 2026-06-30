@@ -21,5 +21,5 @@ type: status
 ## Human attention
 
 - {{blocking questions on draft specs}}
-- {{tasks with no review packet}}
+- {{tasks awaiting independent review}}
 - {{findings pending acceptance}}
