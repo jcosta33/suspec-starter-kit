@@ -33,7 +33,7 @@ Run each against the spec (full catalogue with IDs and severities: the Suspec re
 | ID   | Check                                                                                           | Severity   |
 | ---- | ----------------------------------------------------------------------------------------------- | ---------- |
 | C001 | Every requirement ID (`AC-NNN`) appears exactly once in the file                                | hard error |
-| C002 | No other file claims the same frontmatter `id:`; no requirement ID reused across specs          | hard error |
+| C002 | No other file claims the same frontmatter `id:` (requirement IDs are spec-scoped — AC-001 in two specs is fine) | hard error |
 | C003 | Every requirement carries a `Verify with:` line                                                 | hard error |
 | C004 | Each requirement states exactly one strength word (must / must not / should / should not / may) | warning    |
 | C005 | Non-goals section present and non-empty                                                         | warning    |

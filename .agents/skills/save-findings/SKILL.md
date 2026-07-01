@@ -30,8 +30,9 @@ repository enforces it; it costs one short file per lesson.
    `from:` field names the task or review it came out of — a finding without provenance can't
    be re-checked when someone doubts it later.
 4. **Update the board** (`status.md`): mark the task closed with a link to its review packet,
-   and list each new finding as pending acceptance so it gets read — and accepted or marked
-   stale — instead of rotting.
+   and list each new finding as pending acceptance so it gets read — and accepted, marked
+   stale, or quarantined (suspicious / conflicting / unsupported records never retrieve as
+   active; record the reason) — instead of rotting.
 5. **Route the outgrown ones.** A decision big enough to outlive the feature is an ADR in
    `decisions/`, not a finding. New intended behavior is a spec amendment, not a finding.
    A reproduced defect is a bug report. The finding file is for reusable project facts.

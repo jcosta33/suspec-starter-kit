@@ -23,7 +23,7 @@ This repository is our Suspec workspace:
   beside it.
 - The committed record is `specs/`, `findings/`, `decisions/`, and `status.md`
   (the board). `intake/`, `tasks/`, and `reviews/` are a gitignored ephemeral
-  working set (ADR-0104) — their durable residue lives in the spec's
+  working set (Suspec framework ADR-0104 — not a number in this local ledger) — their durable residue lives in the spec's
   `## Execution`, in `findings/`, and in the merged PR.
 - Every implementer starts from a spec, or from a task packet when a spec is
   split into parallel slices; every result is judged against evidence — a Pass

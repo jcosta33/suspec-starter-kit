@@ -78,8 +78,8 @@ names the PRD in its `sources:`.
   the spec author inherits a decision instead of making one. The PRD holds the outcome ("invalid
   sessions never reach checkout"); the spec mints the requirement.
 - **Wrote a strength word.** A single must / should / may anywhere in Goals or Problem turns
-  intent into obligation. The frontmatter check exists because this slips in constantly —
-  re-read every goal as "is this a result or a rule?"
+  intent into obligation. This slips in constantly — nothing checks it for you; re-read
+  every goal as "is this a result or a rule?"
 - **Wrote the solution mechanism.** "Cache sessions in Redis" names a fix nobody weighed against
   alternatives and pre-commits every reader to it. A PRD is the *why*, not the *what*: state the
   outcome ("session lookups stay fast under load") and let the design choose the mechanism.

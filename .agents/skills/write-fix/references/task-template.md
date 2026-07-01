@@ -14,7 +14,8 @@
 > whether the bug is gone.
 >
 > **Flaky?** If the failing test is non-deterministic, this is the wrong scaffold — a flake's
-> evidence is a loop run, not a single reproduction. Use the `fix-flaky-test` guide instead.
+> evidence is a loop run, not a single reproduction. Use the suspec-skills catalog's
+> `fix-flaky-test` guide instead (installed separately).
 
 ## Scope (from the task packet)
 

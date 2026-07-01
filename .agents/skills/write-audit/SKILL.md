@@ -71,7 +71,8 @@ is a Blocker. When a call is contestable, record the reasoning inline so a revie
 
 ### 7. Recommend requirements in prose — never write them
 
-The template's candidate-requirements section describes, in plain prose, what a future spec
+The audit's candidate-requirements section (no template ships for audits — the section shape is
+this guide) describes, in plain prose, what a future spec
 should require. Write what the spec should carry, not how to change the code. Do not write
 AC items or SOL blocks (the Suspec repo's `docs/reference/structured-requirements.md`) — a requirement acquires force only when someone
 lifts it into a spec, and an audit that writes requirements lets an observation be read as an

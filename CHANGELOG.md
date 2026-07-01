@@ -8,11 +8,32 @@ guidance you can re-copy safely, **patch** is a fix or wording change.
 
 You adopted this kit by copying it whole, so there is no automatic upgrade — watch the
 [releases](https://github.com/jcosta33/suspec-starter-kit/releases) and re-copy the parts you have
-not customized (see `docs/ADOPTING.md` → _Upgrading_ in the Suspec repo).
+not customized (see `docs/ADOPTING.md` → _Updating the kit_ in the Suspec repo).
 
-## [Unreleased]
+## [1.4.0] - 2026-07-02
 
 ### Added
+
+- `templates/review.md` — an optional, additive **Candidate findings (multi-lens review)** section
+  for a lead-orchestrated Revolver review (candidate → accepted / rejected / duplicate /
+  unverified / blocked). The coverage table and the Pass/Fail/Unverified/Blocked result are
+  unchanged.
+- `templates/finding.md` — the status enum gains `quarantined` additively
+  (candidate · accepted · stale · quarantined) plus a provenance-before-active note; the
+  `save-findings` guide names the state.
+- `archive/` — recorded here belatedly: the kit has shipped the archive folder since the baseline
+  without a changelog entry.
+
+### Fixed
+
+- Integrity pass (docs truth + gate hardening): the hooks README no longer claims the pre-commit
+  hook gates `tasks/` (it deliberately does not) or that CI can run `suspec check workspace/`
+  (the command takes a file, never a directory — use `working-directory`); the CI workflow gets
+  `permissions: contents: read`, a tokenless public clone, and a lockfile-respecting
+  scripts-off install; the pre-commit hook iterates staged paths newline-safely; `spec-check`'s
+  C002 row matches the canon (requirement IDs are spec-scoped); the phantom `fix-flaky-test` kit
+  skill is correctly attributed to the suspec-skills catalog; assorted stale pointers
+  (gitignore line count, "future CLI", the ADOPTING heading name, a bare cross-repo ADR number).
 
 - `.gitignore.additions` — ignore `*.suspec-bak` backups left by `suspec update --write` (suspec-cli),
   so they are not committed or flagged as out-of-scope changes by `suspec review`.

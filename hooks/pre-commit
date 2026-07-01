@@ -24,12 +24,20 @@ fi
 files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^(specs|reviews)/.+\.md$' | grep -vE '(^|/)README\.md$' || true)
 [ -z "$files" ] && exit 0
 
+# Iterate newline-safely: split on newlines only and disable glob expansion, so a staged path with
+# spaces or glob characters reaches `suspec check` whole instead of as fragments.
 status=0
+oldifs="$IFS"
+IFS='
+'
+set -f
 for f in $files; do
     suspec check "$f"
     rc=$?
     [ "$rc" -gt "$status" ] && status="$rc"
 done
+set +f
+IFS="$oldifs"
 
 # Exit codes (suspec-cli unixOutcome): 0 clean · 1 warnings · 2 blocking/error.
 if [ "$status" -ge 2 ]; then

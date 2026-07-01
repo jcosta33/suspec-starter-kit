@@ -23,7 +23,7 @@ enforces them at edit time.
 
 This guide is for tests as the deliverable in their own right. Tests written _as part of_ a feature
 or fix ride inside those guides; a test that already fails non-deterministically belongs to
-`fix-flaky-test`.
+the suspec-skills catalog's `fix-flaky-test` (installed separately).
 
 **Before you start, open [`references/task-template.md`](./references/task-template.md)** and copy it
 into your task file — it is the session frame for this work; fill it in as you go (don't reconstruct

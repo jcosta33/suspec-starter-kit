@@ -13,9 +13,10 @@ related: [{{SPEC-x#AC-NNN}}]
 
 <!-- A generated or agent-proposed finding enters as `candidate`; promoting it to `accepted` (active)
      needs source references (the Evidence section) plus a short rationale — provenance before it is
-     trusted. Mark a suspicious, conflicting, unsupported, or security-sensitive record `quarantined`
-     (record the reason); a quarantined record is never retrieved as active. This is a conservative-write
-     discipline, not a performance claim. -->
+     trusted. Mark a record `stale` when its `reviewed:` refresh is overdue or its sources no longer
+     hold (re-verify to restore it). Mark a suspicious, conflicting, unsupported, or security-sensitive
+     record `quarantined` (record the reason); a quarantined record is never retrieved as active. This
+     is a conservative-write discipline, not a performance claim. -->
 
 ## What we learned
 

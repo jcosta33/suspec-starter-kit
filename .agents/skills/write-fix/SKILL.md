@@ -22,7 +22,8 @@ enforces them at edit time.
 
 Writing the bug _report_ is a separate job with its own guide, `write-bug-report`, in this kit —
 this guide consumes a report and produces the fix. A test that fails
-_sometimes_ is a different oracle entirely: load `fix-flaky-test`, not this.
+_sometimes_ is a different oracle entirely: that is the suspec-skills catalog's `fix-flaky-test`
+(install it separately), not this.
 
 **Before you start, open [`references/task-template.md`](./references/task-template.md)** and copy it
 into your task file — it is the session frame for this work; fill it in as you go (don't reconstruct
@@ -83,7 +84,7 @@ Root-causing demands hostility to the first plausible explanation:
 | "While I'm here, this related bug…"                              | Finding candidate in the summary; one cause per fix              |
 | A test asserting internal state                                  | Assert the behavior the bug broke                                |
 | "Tests passed" with no command, exit, or output                  | Paste the real, re-runnable output                               |
-| Re-running a sometimes-failing test until green                  | Wrong guide — load `fix-flaky-test`                              |
+| Re-running a sometimes-failing test until green                  | Wrong guide — the catalog's `fix-flaky-test` (if installed)      |
 
 ## Self-review gate
 

@@ -40,7 +40,7 @@
 ## Commands
 
 <!-- The commands an agent runs to verify work in this repo. Nothing executes them
-     automatically today — you, your agent, CI, or the future CLI does. -->
+     automatically today — you, your agent, CI, or suspec-cli does. -->
 
 | Slot | Command | Purpose |
 |---|---|---|

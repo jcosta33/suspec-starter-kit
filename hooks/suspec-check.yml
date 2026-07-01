@@ -17,25 +17,33 @@ on:
   push:
     branches: [main]
 
+# Check-only job: it reads this repo and clones a public one. Nothing here needs write scope.
+permissions:
+  contents: read
+
 jobs:
   suspec-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
 
+      # suspec-cli is public — a plain https clone needs no token, so no credential is in the
+      # environment when dependency install runs. Deps install from suspec-cli's own lockfile,
+      # lifecycle scripts off. The clone deliberately floats on main until the npm publish; pin a
+      # tag/SHA here (git -C … checkout <ref>) if you want a frozen gate.
       - name: Install suspec-cli (from source — not yet on npm)
-        env:
-          GH_TOKEN: ${{ github.token }}
-          SUSPEC_CLI_REPO: jcosta33/suspec-cli
         run: |
-          gh repo clone "$SUSPEC_CLI_REPO" "$RUNNER_TEMP/suspec-cli" -- --depth 1
+          git clone --depth 1 https://github.com/jcosta33/suspec-cli "$RUNNER_TEMP/suspec-cli"
           cd "$RUNNER_TEMP/suspec-cli"
-          npm install --no-audit --no-fund
-          npm run build
+          corepack enable
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm run build
 
       - name: suspec check
         shell: bash
