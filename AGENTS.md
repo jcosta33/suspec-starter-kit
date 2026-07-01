@@ -21,7 +21,7 @@
 
 ## Workspace
 
-- The loop: Pull → Spec → Task → Run → Review → Close (+ Inventory / Change Plan for
+- The loop: Pull → Spec → Run → Review → Close (+ Task when split, + Inventory / Change Plan for
   structural work).
 - Specs: `specs/<feature>/spec.md` · tasks: `tasks/` · reviews: `reviews/` ·
   findings: `findings/` · intake: `intake/` · inventories: `inventory/` ·

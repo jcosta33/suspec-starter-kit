@@ -17,27 +17,26 @@ not customized (see `docs/ADOPTING.md` → _Upgrading_ in the Suspec repo).
 - `.gitignore.additions` — ignore `*.suspec-bak` backups left by `suspec update --write` (suspec-cli),
   so they are not committed or flagged as out-of-scope changes by `suspec review`.
 - **Implementation-depth skills** `write-feature`, `write-fix`, `write-refactor`, `write-rewrite`,
-  `write-migration`, `write-performance`, `write-testing`, `write-documentation` — **relocated into the
-  kit** from the suspec-skills catalog (suspec ADR-0112). They implement a Suspec task packet of a given
+  `write-migration`, `write-performance`, `write-testing`, `write-documentation` — now ship in the
+  kit. They implement a Suspec task packet of a given
   kind, so they are Suspec-coupled and belong with the other Suspec skills; the catalog is now
   framework-free (universal stances + disciplines only). Opt-in depth — summon the kind your task needs.
 
 ### Removed
 
-- `adversarial-review` skill — **relocated to the suspec-skills catalog** (suspec ADR-0111): a review
+- `adversarial-review` skill — install from the suspec-skills catalog: a review
   *style* is not a Suspec concept (Suspec mandates the review artifact, not how you review). Install it
   with `npx skills add jcosta33/suspec-skills --skill adversarial-review`. `review-output` (which builds
   the review packet) stays in the kit.
-- `advanced/` and `examples/` directories — **dropped** (suspec ADR-0105): the ADR shape moved into
+- `advanced/` and `examples/` directories — not included in the current kit: the ADR shape moved into
   `templates/adr.md`, the reference cards were already single-sourced to the canonical
   `docs/reference/`, and the worked example chain lives in the Suspec repo's `docs/examples/`.
 
 ### Changed
 
 - Spec template + `write-spec`: the `## Open questions` section is now filled with **options + a
-  recommendation** (a decidable fork), not a bare question — the section name and C006 are unchanged
-  (suspec ADR-0101).
-- **Spec is the unit of work; the task is an on-demand split slice** (suspec ADR-0103). The spec
+  recommendation** (a decidable fork), not a bare question — the section name and C006 are unchanged.
+- **Spec is the unit of work; the task is an on-demand split slice**. The spec
   template gains an append-only `## Execution` section the implementer fills for 1:1 work — no task
   file unless the spec splits into parallel slices. The task template, `split-work`, `implement-task`,
   and `review-output` are reworded to match. Additive: existing specs and tasks stay valid.

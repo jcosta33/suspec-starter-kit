@@ -25,9 +25,10 @@ This repository is our Suspec workspace:
   (the board). `intake/`, `tasks/`, and `reviews/` are a gitignored ephemeral
   working set (ADR-0104) — their durable residue lives in the spec's
   `## Execution`, in `findings/`, and in the merged PR.
-- Every agent task starts from a task packet; every result is judged through
-  a review packet — a Pass needs pasted output, a CI link, or, for a manual
-  check, a named human's recorded observation.
+- Every implementer starts from a spec, or from a task packet when a spec is
+  split into parallel slices; every result is judged against evidence — a Pass
+  needs pasted output, a CI link, or, for a manual check, a named human's
+  recorded observation.
 - Decisions land here in `decisions/`, numbered and immutable.
 - Code repositories stay pristine: they hold code; this workspace holds
   intent and evidence.

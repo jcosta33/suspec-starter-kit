@@ -2,7 +2,7 @@
 
 Where **transitory** workspace output goes to age out, so the live tree stays navigable.
 
-Suspec splits artifacts into two classes (Suspec ADR-0096):
+Suspec splits artifacts into two classes:
 
 - **Durable records** — specs of record, decisions (ADRs in `decisions/`), and saved `findings/` —
   persist for the repo's life. They are **superseded, never deleted**: mark a reversed one
