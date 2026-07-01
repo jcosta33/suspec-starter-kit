@@ -1,7 +1,7 @@
 ---
 type: finding
 id: FINDING-{{slug}}
-status: candidate
+status: candidate  # candidate · accepted · stale · quarantined
 owner: {{team-or-person}}
 from: {{TASK- / REVIEW- / AUDIT- / INV- id}}
 date: {{YYYY-MM-DD}}
@@ -10,6 +10,12 @@ related: [{{SPEC-x#AC-NNN}}]
 ---
 
 # Finding: {{title}}
+
+<!-- A generated or agent-proposed finding enters as `candidate`; promoting it to `accepted` (active)
+     needs source references (the Evidence section) plus a short rationale — provenance before it is
+     trusted. Mark a suspicious, conflicting, unsupported, or security-sensitive record `quarantined`
+     (record the reason); a quarantined record is never retrieved as active. This is a conservative-write
+     discipline, not a performance claim. -->
 
 ## What we learned
 
