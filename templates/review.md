@@ -32,6 +32,26 @@ status: "{{draft | pass | waived | blocked | needs-human}}"
 - Lenses: {{e.g. correctness · evidence/repro · maintainability — who ran each}}
 - Reconciliation: {{how the lead resolved conflicts/duplicates across lenses}}
 
+## Candidate findings (multi-lens review)
+
+<!-- OPTIONAL — only for a lead-orchestrated multi-lens (Revolver) review. Records the lead's
+     adjudication of the lenses' candidate findings; it is ADDITIVE and does NOT replace the Requirement
+     coverage table or the Pass/Fail/Unverified/Blocked result. Delete this section for a single-reviewer
+     review.
+     Each candidate carries an id, its source lens, the claim, its evidence, and ONE state:
+       candidate → accepted (has ≥1 concrete evidence ref) · rejected (short reason) · duplicate (points
+       to a canonical id, keeps its source lens) · unverified (cannot block or pass a review on its own) ·
+       blocked (needs input or an unavailable check).
+     An accepted finding needs concrete evidence — reviewer confidence is not evidence; deduplication
+     feeds the unique-finding count the stop rule reads; never auto-close a review on lens agreement. -->
+
+| Candidate | Lens             | Claim  | Evidence                    | State      | Canonical |
+| --------- | ---------------- | ------ | --------------------------- | ---------- | --------- |
+| RF-001    | {{security}}     | {{…}}  | `{{file:line}}` / output    | accepted   | —         |
+| RF-002    | {{maintainability}} | {{…}} | {{no evidence}}           | duplicate  | RF-001    |
+
+Stop reason: {{marginal unique accepted findings dried up · hard round/budget cap · human stop}}
+
 ## Changed files
 
 - `{{path}}`
